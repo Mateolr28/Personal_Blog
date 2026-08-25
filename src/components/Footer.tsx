@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="flex items-center gap-2 text-xs text-white/40 font-mono">
               <MapPin className="w-3.5 h-3.5 text-blue-400" />
-              <span>Bogotá (BOG / SKBO) & Worldwide</span>
+              <span>Medellín (MDE / SKMDE / SKRG) & Worldwide</span>
             </div>
           </div>
 
@@ -103,22 +103,12 @@ export const Footer: React.FC = () => {
                 <Youtube className="w-4 h-4" />
               </a>
             </div>
-            <div className="pt-2 flex flex-col gap-1 text-xs">
-              <span className="text-white/40 font-mono">mateolriadev@gmail.com</span>
-              <Link to="/admin/login" className="text-white/40 hover:text-blue-400 underline underline-offset-4 text-[11px] font-mono transition-colors">
-                Acceso Admin &rarr;
-              </Link>
-            </div>
           </div>
         </div>
 
         {/* Bottom copyright & Status */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] uppercase tracking-widest text-white/40 font-mono gap-4">
           <p>© {currentYear} MATEO LARGO ARCHIVE. ALL RIGHTS RESERVED.</p>
-          <div className="flex items-center gap-6">
-            <span>React + Supabase Stack</span>
-            <span className="text-emerald-400">System: Operational</span>
-          </div>
         </div>
       </div>
     </footer>
