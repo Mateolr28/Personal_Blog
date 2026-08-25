@@ -49,9 +49,10 @@ export const profileService = {
         if (error) throw new Error(error.message);
         return data as Profile;
       } else {
+        const { id: _ignoredId, ...profileData } = profile;
         const { data, error } = await supabase
           .from('profiles')
-          .insert([profile])
+          .insert([profileData])
           .select()
           .single();
         if (error) throw new Error(error.message);
