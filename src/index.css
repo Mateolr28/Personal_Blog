@@ -12,6 +12,12 @@
     --font-mono: 'JetBrains Mono', monospace;
   }
 
+  :root.light {
+    --glass: rgba(15, 23, 42, 0.04);
+    --glass-hover: rgba(15, 23, 42, 0.08);
+    --border: rgba(15, 23, 42, 0.14);
+  }
+
   body {
     font-family: var(--font-sans);
     background-color: #080808;
@@ -20,10 +26,82 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  :root.light body {
+    background-color: #f8fafc;
+    color: #172033;
+  }
+
   ::selection {
     background-color: #3b82f6;
     color: #ffffff;
   }
+}
+
+/* Components use a dark archive palette by default. Keep the same structure
+   while translating the shared surfaces and typography for light mode. */
+:root.light .bg-\[\#080808\],
+:root.light .bg-\[\#080808\]\/90,
+:root.light .bg-neutral-950 {
+  background-color: #f8fafc !important;
+}
+
+:root.light .bg-neutral-900 {
+  background-color: #ffffff !important;
+}
+
+:root.light .bg-neutral-800 {
+  background-color: #f1f5f9 !important;
+}
+
+:root.light .text-white,
+:root.light .text-neutral-100 {
+  color: #172033 !important;
+}
+
+:root.light .text-neutral-200,
+:root.light .text-neutral-300 {
+  color: #334155 !important;
+}
+
+:root.light .text-neutral-400,
+:root.light .text-neutral-500 {
+  color: #64748b !important;
+}
+
+:root.light .border-neutral-800,
+:root.light .border-neutral-700,
+:root.light .border-white\/10,
+:root.light .border-white\/5 {
+  border-color: #dbe3ee !important;
+}
+
+:root.light .bg-white\/\[0\.03\],
+:root.light .bg-white\/\[0\.04\],
+:root.light .bg-white\/5 {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+
+:root.light .text-white\/30,
+:root.light .text-white\/40,
+:root.light .text-white\/50,
+:root.light .text-white\/60,
+:root.light .text-white\/70,
+:root.light .text-white\/80 {
+  color: #64748b !important;
+}
+
+:root.light .archive-card,
+:root.light .glass-panel {
+  background-color: rgba(255, 255, 255, 0.82);
+  border-color: #dbe3ee;
+}
+
+:root.light ::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+:root.light ::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.2);
 }
 
 .serif, .font-serif {
