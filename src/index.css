@@ -54,7 +54,8 @@
 }
 
 :root.light .text-white,
-:root.light .text-neutral-100 {
+:root.light .text-neutral-100,
+:root.light .text-\[\#e0e0e0\] {
   color: #172033 !important;
 }
 
