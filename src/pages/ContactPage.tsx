@@ -89,7 +89,7 @@ export const ContactPage: React.FC = () => {
                     href="mailto:mateolriadev@gmail.com"
                     className="font-medium text-neutral-900 dark:text-white hover:text-sky-500 transition-colors"
                   >
-                    mateolriadev@gmail.com
+                    mateolr@outlook.com
                   </a>
                 </div>
               </div>
@@ -101,7 +101,7 @@ export const ContactPage: React.FC = () => {
                 <div>
                   <p className="text-xs font-bold text-neutral-400 uppercase">Ubicación</p>
                   <p className="font-medium text-neutral-900 dark:text-white">
-                    Bogotá, Colombia (Zona Horaria UTC-5)
+                    Medellín, Colombia (Zona Horaria UTC-5)
                   </p>
                 </div>
               </div>
@@ -114,7 +114,7 @@ export const ContactPage: React.FC = () => {
               </p>
               <div className="flex items-center gap-3">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/Mateolr28"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-2xl bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-sky-500 dark:hover:text-sky-400 border border-neutral-200 dark:border-neutral-700 transition-all hover:scale-105 shadow-sm"
