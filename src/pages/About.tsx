@@ -121,11 +121,20 @@ export const About: React.FC = () => {
           </div>
 
           <div className="space-y-4 text-sm sm:text-base text-white/60 leading-relaxed font-sans">
-            <p>
-              {profile?.bio ||
-                profile?.short_bio ||
-                'Perfil en configuración. La información biográfica y trayectoria profesional se agregarán próximamente.'}
-            </p>
+            {profile?.bio ? (
+              profile.bio.split('\n').map((paragraph, index) => (
+                paragraph.trim() && (
+                  <p key={index}>
+                    {paragraph}
+                  </p>
+                )
+              ))
+            ) : (
+              <p>
+                {profile?.short_bio ||
+                  'Perfil en configuración. La información biográfica y trayectoria profesional se agregarán próximamente.'}
+              </p>
+            )}
           </div>
 
           {/* Interests Chips */}

@@ -242,11 +242,15 @@ export const AdminProfile: React.FC = () => {
               Biografía Completa (Página Sobre Mí)
             </label>
             <textarea
-              rows={6}
+              rows={8}
               value={profile?.bio || ''}
               onChange={(e) => handleProfileChange('bio', e.target.value)}
               className="w-full px-4 py-2.5 text-sm bg-neutral-800 text-white rounded-xl border border-neutral-700 focus:outline-none focus:border-sky-500"
+              placeholder="Separa los párrafos con saltos de línea para que se muestren formateados en la página pública."
             />
+            <p className="text-xs text-neutral-500">
+              💡 Tip: Usa saltos de línea (presiona Enter dos veces) para separar párrafos y que se vean bien formateados.
+            </p>
           </div>
         </div>
 

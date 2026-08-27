@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Plane,
@@ -14,18 +14,25 @@ import {
   Instagram,
   Terminal,
   ExternalLink,
-} from 'lucide-react';
-import { motion } from 'motion/react';
-import { profileService } from '../services/profileService';
-import { projectService } from '../services/projectService';
-import { travelService } from '../services/travelService';
-import { aviationService } from '../services/aviationService';
-import { technologyService } from '../services/technologyService';
-import { Profile, Project, Travel, Aviation, Technology, SocialLink } from '../types';
-import { ProjectCard } from '../components/ProjectCard';
-import { TravelCard } from '../components/TravelCard';
-import { AircraftCard } from '../components/AircraftCard';
-import { SEO } from '../components/SEO';
+} from "lucide-react";
+import { motion } from "motion/react";
+import { profileService } from "../services/profileService";
+import { projectService } from "../services/projectService";
+import { travelService } from "../services/travelService";
+import { aviationService } from "../services/aviationService";
+import { technologyService } from "../services/technologyService";
+import {
+  Profile,
+  Project,
+  Travel,
+  Aviation,
+  Technology,
+  SocialLink,
+} from "../types";
+import { ProjectCard } from "../components/ProjectCard";
+import { TravelCard } from "../components/TravelCard";
+import { AircraftCard } from "../components/AircraftCard";
+import { SEO } from "../components/SEO";
 
 export const Home: React.FC = () => {
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -54,7 +61,7 @@ export const Home: React.FC = () => {
         setAviationList(av.slice(0, 4));
         setTechnologies(tech.slice(0, 8));
       } catch (err) {
-        console.error('Error fetching home data:', err);
+        console.error("Error fetching home data:", err);
       } finally {
         setLoading(false);
       }
@@ -65,8 +72,11 @@ export const Home: React.FC = () => {
   return (
     <div className="space-y-24 sm:space-y-32 pb-24">
       <SEO
-        title={`${profile?.full_name || 'Mateo Largo'} | Software Engineer, Traveler & Aviation Spotter`}
-        description={profile?.short_bio || 'Portafolio profesional, bitácora de viajes y archivo digital de fotografía aeronáutica.'}
+        title={`${profile?.full_name || "Mateo Largo"} | Software Engineer, Traveler & Aviation Spotter`}
+        description={
+          profile?.short_bio ||
+          "Portafolio profesional, bitácora de viajes y archivo digital de fotografía aeronáutica."
+        }
       />
 
       {/* ========================================================================= */}
@@ -92,13 +102,16 @@ export const Home: React.FC = () => {
             </div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl serif font-light text-white leading-[1.08] tracking-tight">
-              Capturando ideas, <span className="italic text-blue-400 font-normal">construyendo proyectos</span> &{' '}
-              <span className="italic font-normal">explorando el mundo</span>.
+              Capturando ideas,{" "}
+              <span className="italic text-blue-400 font-normal">
+                construyendo proyectos
+              </span>{" "}
+              & <span className="italic font-normal">explorando el mundo</span>.
             </h1>
 
             <p className="text-base sm:text-lg text-white/50 leading-relaxed max-w-xl">
               {profile?.short_bio ||
-                'Un espacio personal donde comparto mi camino en la ingeniería de software, mis proyectos, viajes y mi pasión por la aviación.'}
+                "Un espacio personal donde comparto mi camino en la ingeniería de software, mis proyectos, viajes y mi pasión por la aviación."}
             </p>
 
             {/* CTA Buttons */}
@@ -134,12 +147,22 @@ export const Home: React.FC = () => {
 
             {/* Core Tech Minimal Row */}
             <div className="pt-6 border-t border-white/5 flex items-center gap-6 text-white/40">
-              <span className="text-[10px] uppercase tracking-[0.2em] font-mono">Core Stack</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] font-mono">
+                Core Stack
+              </span>
               <div className="flex gap-4 text-xs font-mono">
-                <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/10 text-white/70">React</span>
-                <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/10 text-white/70">TypeScript</span>
-                <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/10 text-white/70">Supabase</span>
-                <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/10 text-white/70">PostgreSQL</span>
+                <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/10 text-white/70">
+                  React
+                </span>
+                <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/10 text-white/70">
+                  TypeScript
+                </span>
+                <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/10 text-white/70">
+                  Supabase
+                </span>
+                <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/10 text-white/70">
+                  PostgreSQL
+                </span>
               </div>
             </div>
           </motion.div>
@@ -157,7 +180,7 @@ export const Home: React.FC = () => {
                   <>
                     <img
                       src={profile.avatar_url}
-                      alt={profile?.full_name || 'Mateo'}
+                      alt={profile?.full_name || "Mateo"}
                       className="w-full h-full object-cover absolute inset-0"
                       referrerPolicy="no-referrer"
                     />
@@ -166,13 +189,15 @@ export const Home: React.FC = () => {
                 ) : (
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-b from-blue-950/20 to-black">
                     <div className="w-24 h-24 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-4">
-                      <span className="serif text-3xl font-light text-blue-400">MR</span>
+                      <span className="serif text-3xl font-light text-blue-400">
+                        MR
+                      </span>
                     </div>
                     <div className="text-xs font-mono uppercase tracking-widest text-white/40">
                       Archivo Digital Personal
                     </div>
                     <div className="text-[10px] font-mono text-white/30 mt-1">
-                      {profile?.email || 'mateolriadev@gmail.com'}
+                      {profile?.email || "mateolriadev@gmail.com"}
                     </div>
                   </div>
                 )}
@@ -180,14 +205,16 @@ export const Home: React.FC = () => {
                 {/* Floating Info inside Hero */}
                 <div className="relative z-10 m-4 p-4 rounded-lg bg-black/70 backdrop-blur-md border border-white/10 text-white space-y-1">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-bold serif tracking-wide">{profile?.full_name || 'Mateo Largo'}</span>
+                    <span className="text-sm font-bold serif tracking-wide">
+                      {profile?.full_name || "Mateo Largo"}
+                    </span>
                     <span className="text-[9px] font-mono px-2 py-0.5 bg-blue-600/80 rounded uppercase tracking-wider">
-                      {profile?.profession ? 'Perfil' : 'Ingeniería'}
+                      {profile?.profession ? "Perfil" : "Ingeniería"}
                     </span>
                   </div>
                   <div className="flex items-center gap-1.5 text-xs text-white/60 font-mono">
                     <MapPin className="w-3 h-3 text-blue-400" />
-                    <span>{profile?.location || 'Bogotá, Colombia'}</span>
+                    <span>{profile?.location || "Bogotá, Colombia"}</span>
                   </div>
                 </div>
               </div>
@@ -231,7 +258,9 @@ export const Home: React.FC = () => {
               >
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500" />
-                  <span className="text-sm font-semibold text-white">{tech.name}</span>
+                  <span className="text-sm font-semibold text-white">
+                    {tech.name}
+                  </span>
                 </div>
                 <span className="text-[10px] font-mono uppercase tracking-wider text-white/40">
                   {tech.level}
@@ -267,7 +296,9 @@ export const Home: React.FC = () => {
         {projects.length === 0 ? (
           <div className="p-12 rounded-xl archive-card text-center space-y-3 border border-dashed border-white/10">
             <FolderGit2 className="w-8 h-8 text-white/30 mx-auto" />
-            <h3 className="text-sm font-semibold text-white/80 serif">No hay proyectos publicados aún</h3>
+            <h3 className="text-sm font-semibold text-white/80 serif">
+              No hay proyectos publicados aún
+            </h3>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -296,7 +327,8 @@ export const Home: React.FC = () => {
                 Fotografía & Registro Aeronáutico
               </h2>
               <p className="mt-2 text-sm text-white/50 max-w-2xl leading-relaxed">
-                Archivo digital de aeronaves comerciales con matrículas, modelos, especificaciones técnicas y aeropuertos.
+                Archivo digital de aeronaves comerciales con matrículas,
+                modelos, especificaciones técnicas y aeropuertos.
               </p>
             </div>
 
@@ -352,9 +384,12 @@ export const Home: React.FC = () => {
         {travels.length === 0 ? (
           <div className="p-12 rounded-xl archive-card text-center space-y-3 border border-dashed border-white/10">
             <Compass className="w-8 h-8 text-white/30 mx-auto" />
-            <h3 className="text-sm font-semibold text-white/80 serif">No hay bitácoras de viaje publicadas aún</h3>
+            <h3 className="text-sm font-semibold text-white/80 serif">
+              No hay bitácoras de viaje publicadas aún
+            </h3>
             <p className="text-xs text-white/40 font-mono max-w-md mx-auto">
-              Las bitácoras de viajes y expediciones que agregues aparecerán aquí.
+              Las bitácoras de viajes y expediciones que agregues aparecerán
+              aquí.
             </p>
           </div>
         ) : (
@@ -376,11 +411,13 @@ export const Home: React.FC = () => {
           </div>
 
           <h2 className="text-2xl sm:text-3xl serif font-normal text-white max-w-xl mx-auto leading-tight">
-            ¿Tienes un proyecto en mente o quieres conversar sobre aviación y tecnología?
+            ¿Tienes un proyecto en mente o quieres conversar sobre aviación y
+            tecnología?
           </h2>
 
           <p className="text-sm text-white/50 max-w-md mx-auto leading-relaxed">
-            Escríbeme para colaborar en proyectos de ingeniería de software, publicaciones o fotografía aeronáutica.
+            Escríbeme para colaborar en proyectos de ingeniería de software,
+            publicaciones o fotografía aeronáutica.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
