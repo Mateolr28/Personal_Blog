@@ -78,7 +78,7 @@ export const AviationDetailPage: React.FC = () => {
             url: aircraft.main_image,
             title: `${aircraft.registration} · ${aircraft.model}`,
             caption: `${aircraft.airline} | ${aircraft.airport_name} (${aircraft.airport_code})`,
-            metadata: `${aircraft.manufacturer} · MSN: ${aircraft.serial_number || 'N/A'}`,
+            metadata: `${aircraft.manufacturer} · Vuelo: ${aircraft.serial_number || 'N/A'}`,
           },
         ]
       : []),
@@ -207,7 +207,7 @@ export const AviationDetailPage: React.FC = () => {
           </div>
 
           <div className="p-3.5 rounded-2xl bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60">
-            <p className="text-[11px] text-neutral-500 uppercase font-mono">Número de Serie (MSN)</p>
+            <p className="text-[11px] text-neutral-500 uppercase font-mono">Número de vuelo</p>
             <p className="font-bold text-neutral-900 dark:text-white font-mono">{aircraft.serial_number || 'N/D'}</p>
           </div>
         </div>

@@ -21,6 +21,24 @@ import { ImageUploader } from '../../components/ImageUploader';
 import { ConfirmDialog } from '../../components/ConfirmDialog';
 import { SEO } from '../../components/SEO';
 
+const colombianAirports = [
+  { code: 'MDE', name: 'Aeropuerto Internacional José María Córdova', city: 'Medellín' },
+  { code: 'BOG', name: 'Aeropuerto Internacional El Dorado', city: 'Bogotá' },
+  { code: 'CLO', name: 'Aeropuerto Internacional Alfonso Bonilla Aragón', city: 'Cali' },
+  { code: 'CTG', name: 'Aeropuerto Internacional Rafael Núñez', city: 'Cartagena' },
+  { code: 'BAQ', name: 'Aeropuerto Internacional Ernesto Cortissoz', city: 'Barranquilla' },
+  { code: 'BGA', name: 'Aeropuerto Internacional Palonegro', city: 'Bucaramanga' },
+  { code: 'PEI', name: 'Aeropuerto Internacional Matecaña', city: 'Pereira' },
+  { code: 'SMR', name: 'Aeropuerto Internacional Simón Bolívar', city: 'Santa Marta' },
+  { code: 'ADZ', name: 'Aeropuerto Internacional Gustavo Rojas Pinilla', city: 'San Andrés' },
+  { code: 'LET', name: 'Aeropuerto Internacional Alfredo Vásquez Cobo', city: 'Leticia' },
+  { code: 'VVC', name: 'Aeropuerto Vanguardia', city: 'Villavicencio' },
+  { code: 'AXM', name: 'Aeropuerto Internacional El Edén', city: 'Armenia' },
+  { code: 'CUC', name: 'Aeropuerto Internacional Camilo Daza', city: 'Cúcuta' },
+  { code: 'IBE', name: 'Aeropuerto Perales', city: 'Ibagué' },
+  { code: 'NVA', name: 'Aeropuerto Benito Salas', city: 'Neiva' },
+];
+
 export const AdminAviation: React.FC = () => {
   const [aviationList, setAviationList] = useState<Aviation[]>([]);
   const [loading, setLoading] = useState(true);
@@ -58,9 +76,9 @@ export const AdminAviation: React.FC = () => {
       operator: '',
       country: 'Colombia',
       photo_date: new Date().toISOString().split('T')[0],
-      airport_code: 'BOG',
-      airport_name: 'Aeropuerto Internacional El Dorado',
-      city: 'Bogotá',
+      airport_code: 'MDE',
+      airport_name: 'Aeropuerto Internacional José María Córdova',
+      city: 'Medellín',
       aircraft_type: 'Comercial',
       serial_number: '',
       description: '',
@@ -413,19 +431,37 @@ export const AdminAviation: React.FC = () => {
                     type="text"
                     required
                     placeholder="Ej. Aeropuerto El Dorado"
+                    list="colombian-airports"
                     value={currentAircraft.airport_name || ''}
-                    onChange={(e) =>
-                      setCurrentAircraft({ ...currentAircraft, airport_name: e.target.value })
-                    }
+                    onChange={(e) => {
+                      const airportName = e.target.value;
+                      const selectedAirport = colombianAirports.find(
+                        (airport) => airport.name === airportName,
+                      );
+                      setCurrentAircraft({
+                        ...currentAircraft,
+                        airport_name: airportName,
+                        ...(selectedAirport
+                          ? { airport_code: selectedAirport.code, city: selectedAirport.city }
+                          : {}),
+                      });
+                    }}
                     className="w-full px-3.5 py-2 text-xs bg-neutral-800 text-white rounded-xl border border-neutral-700"
                   />
+                  <datalist id="colombian-airports">
+                    {colombianAirports.map((airport) => (
+                      <option key={airport.code} value={airport.name}>
+                        {airport.code} · {airport.city}
+                      </option>
+                    ))}
+                  </datalist>
                 </div>
 
                 <div className="space-y-1.5">
                   <label className="text-xs font-semibold text-neutral-300">Ciudad & País</label>
                   <input
                     type="text"
-                    placeholder="Bogotá, Colombia"
+                    placeholder="Medellín, Colombia"
                     value={currentAircraft.city || ''}
                     onChange={(e) =>
                       setCurrentAircraft({ ...currentAircraft, city: e.target.value })
@@ -435,7 +471,7 @@ export const AdminAviation: React.FC = () => {
                 </div>
               </div>
 
-              {/* Photo Date, Serial & Type */}
+              {/* Photo Date, Flight Number & Type */}
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
                 <div className="space-y-1.5">
                   <label className="text-xs font-semibold text-neutral-300">Fecha de Captura *</label>
@@ -451,10 +487,10 @@ export const AdminAviation: React.FC = () => {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-neutral-300">Serial Number (MSN)</label>
+                  <label className="text-xs font-semibold text-neutral-300">Número de vuelo</label>
                   <input
                     type="text"
-                    placeholder="Ej. 10245"
+                    placeholder="Ej. AV1234"
                     value={currentAircraft.serial_number || ''}
                     onChange={(e) =>
                       setCurrentAircraft({ ...currentAircraft, serial_number: e.target.value })
