@@ -88,17 +88,17 @@ export const Home: React.FC = () => {
             {/* Status Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded admin-badge text-[10px] font-mono font-bold tracking-widest uppercase shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Software Engineer & Civil Aviation Spotter</span>
+              <span>Software Engineer</span>
             </div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl serif font-light text-white leading-[1.08] tracking-tight">
-              Capturando <span className="italic text-blue-400 font-normal">Código</span> &{' '}
-              <span className="italic font-normal">Nubes</span>.
+              Capturando ideas, <span className="italic text-blue-400 font-normal">construyendo proyectos</span> &{' '}
+              <span className="italic font-normal">explorando el mundo</span>.
             </h1>
 
             <p className="text-base sm:text-lg text-white/50 leading-relaxed max-w-xl">
               {profile?.short_bio ||
-                'Un archivo digital de proyectos de ingeniería de software, bitácoras de viajes internacionales y fotografía de aviación comercial. Construido con React, TypeScript y Supabase.'}
+                'Un espacio personal donde comparto mi camino en la ingeniería de software, mis proyectos, viajes y mi pasión por la aviación.'}
             </p>
 
             {/* CTA Buttons */}

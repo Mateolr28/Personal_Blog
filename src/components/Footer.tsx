@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
               <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-900 to-blue-600 flex items-center justify-center text-white border border-blue-400/30">
                 <Plane className="w-3.5 h-3.5 -rotate-45" />
               </div>
-              <span className="text-lg font-bold tracking-tight serif italic">MR.ARCHIVE</span>
+              <span className="text-lg font-bold tracking-tight serif italic">ML.ARCHIVE</span>
             </div>
             <p className="text-sm text-white/50 max-w-md leading-relaxed">
               Un archivo digital de proyectos de ingeniería de software, bitácoras de viajes internacionales y fotografía de aviación civil comercial.

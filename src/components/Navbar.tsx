@@ -57,9 +57,9 @@ export const Navbar: React.FC = () => {
             <Plane className="w-4 h-4 -rotate-45" />
           </div>
           <div className="flex flex-col">
-            <span className="text-base font-bold tracking-tight serif italic">MR.ARCHIVE</span>
+            <span className="text-base font-bold tracking-tight serif italic">ML.ARCHIVE</span>
             <span className="text-[9px] text-white/40 font-mono tracking-widest uppercase">
-              Dev & Spotter
+              DEV • EXPLORER • AVIATION
             </span>
           </div>
         </Link>
