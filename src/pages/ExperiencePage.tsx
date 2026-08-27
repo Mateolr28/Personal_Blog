@@ -55,9 +55,6 @@ export const ExperiencePage: React.FC = () => {
           <div className="p-12 text-center archive-card rounded-xl border border-dashed border-white/10 space-y-3">
             <Briefcase className="w-8 h-8 text-white/30 mx-auto" />
             <p className="text-sm font-semibold text-white/70 serif">No hay experiencias registradas aún.</p>
-            <p className="text-xs text-white/40 font-mono max-w-md mx-auto">
-              Puedes registrar tus cargos, empresas, períodos y logros desde el panel de administración.
-            </p>
           </div>
         ) : (
           <div>

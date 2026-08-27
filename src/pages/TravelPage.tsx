@@ -105,11 +105,6 @@ export const TravelPage: React.FC = () => {
           <h3 className="text-base font-semibold text-white/80 serif">
             {travels.length === 0 ? 'No hay bitácoras de viaje registradas aún' : 'No se encontraron viajes'}
           </h3>
-          <p className="text-xs text-white/40 font-mono max-w-md mx-auto">
-            {travels.length === 0
-              ? 'Puedes registrar tus viajes, destinos, ciudades y galerías de fotos desde el panel de administración.'
-              : 'Intenta con otro destino o término de búsqueda.'}
-          </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -46,7 +46,7 @@ export const ProjectsPage: React.FC = () => {
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto space-y-3">
         <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-blue-400">
-          Portafolio de Código
+          PORTAFOLIO DE DESARROLLO
         </span>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl serif font-normal text-white">
           Proyectos & Aplicaciones
@@ -106,11 +106,6 @@ export const ProjectsPage: React.FC = () => {
           <h3 className="text-base font-semibold text-white/80 serif">
             {projects.length === 0 ? 'No hay proyectos registrados aún' : 'No se encontraron proyectos'}
           </h3>
-          <p className="text-xs text-white/40 font-mono max-w-md mx-auto">
-            {projects.length === 0
-              ? 'Puedes crear tus primeros proyectos con capturas, enlaces y tecnologías desde el panel de administración.'
-              : 'Intenta cambiar los términos de búsqueda o filtros.'}
-          </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
