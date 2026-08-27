@@ -46,14 +46,23 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) =>
           </div>
         </div>
 
-        <p className="mt-3 text-xs sm:text-sm text-white/60 leading-relaxed">
-          {experience.description}
-        </p>
+        {experience.description && (
+          <div className="mt-3 space-y-3 text-xs sm:text-sm text-white/60 leading-relaxed">
+            {experience.description
+              .split(/\n\s*\n/)
+              .filter((paragraph) => paragraph.trim())
+              .map((paragraph, idx) => (
+                <p key={idx} className="whitespace-pre-line">
+                  {paragraph.trim()}
+                </p>
+              ))}
+          </div>
+        )}
 
         {experience.achievements && experience.achievements.length > 0 && (
           <div className="mt-4 space-y-1.5">
             <p className="text-[10px] font-mono uppercase tracking-wider text-white/40">
-              Logros clave
+              Puntos destacados
             </p>
             {experience.achievements.map((achievement, idx) => (
               <div key={idx} className="flex items-start gap-2 text-xs text-white/60">

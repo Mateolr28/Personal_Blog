@@ -275,9 +275,10 @@ export const AdminExperience: React.FC = () => {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-neutral-300">Descripción del Rol</label>
+                <label className="text-xs font-semibold text-neutral-300">Descripción del Rol por párrafos</label>
                 <textarea
-                  rows={3}
+                  rows={6}
+                  placeholder="Escribe un párrafo y deja una línea en blanco para comenzar otro..."
                   value={currentExp.description || ''}
                   onChange={(e) => setCurrentExp({ ...currentExp, description: e.target.value })}
                   className="w-full px-3.5 py-2 text-xs bg-neutral-800 text-white rounded-xl border border-neutral-700"
@@ -330,11 +331,11 @@ export const AdminExperience: React.FC = () => {
 
               {/* Achievements */}
               <div className="space-y-2">
-                <label className="text-xs font-semibold text-neutral-300">Logros Clave</label>
+                <label className="text-xs font-semibold text-neutral-300">Puntos destacados</label>
                 <div className="flex gap-2">
                   <input
                     type="text"
-                    placeholder="Logro o impacto medible..."
+                    placeholder="Añade un punto para describir una responsabilidad o logro..."
                     value={achievementInput}
                     onChange={(e) => setAchievementInput(e.target.value)}
                     onKeyDown={(e) => {
