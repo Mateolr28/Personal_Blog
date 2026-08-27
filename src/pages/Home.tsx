@@ -220,7 +220,7 @@ export const Home: React.FC = () => {
 
         {technologies.length === 0 ? (
           <div className="p-8 rounded-xl archive-card text-center text-white/40 font-mono text-xs border border-dashed border-white/10">
-            <span>No hay tecnologías registradas aún. Puedes agregarlas desde el panel administrativo.</span>
+            <span>No hay tecnologías registradas aún.</span>
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
@@ -268,9 +268,6 @@ export const Home: React.FC = () => {
           <div className="p-12 rounded-xl archive-card text-center space-y-3 border border-dashed border-white/10">
             <FolderGit2 className="w-8 h-8 text-white/30 mx-auto" />
             <h3 className="text-sm font-semibold text-white/80 serif">No hay proyectos publicados aún</h3>
-            <p className="text-xs text-white/40 font-mono max-w-md mx-auto">
-              Los proyectos agregados en el panel de administración aparecerán destacados aquí.
-            </p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
