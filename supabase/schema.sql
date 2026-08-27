@@ -301,6 +301,7 @@ CREATE POLICY "Admins can update aviation" ON public.aviation FOR UPDATE USING (
 CREATE POLICY "Admins can delete aviation" ON public.aviation FOR DELETE USING (public.is_admin());
 
 -- Contact Messages: Public can Insert, Admins can Select/Update/Delete
+DROP POLICY IF EXISTS "Public can insert contact messages" ON public.contact_messages;
 CREATE POLICY "Public can insert contact messages" ON public.contact_messages FOR INSERT WITH CHECK (true);
 CREATE POLICY "Admins can view contact messages" ON public.contact_messages FOR SELECT USING (public.is_admin());
 CREATE POLICY "Admins can update contact messages" ON public.contact_messages FOR UPDATE USING (public.is_admin());
