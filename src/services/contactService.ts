@@ -5,15 +5,13 @@ import { initialMessages } from '../data/seedData';
 const LOCAL_KEY = 'portfolio_contact_messages';
 
 export const contactService = {
-  async sendMessage(msg: Omit<ContactMessage, 'id' | 'read' | 'created_at'>): Promise<ContactMessage> {
+  async sendMessage(msg: Omit<ContactMessage, 'id' | 'read' | 'created_at'>): Promise<void> {
     if (isSupabaseConfigured()) {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('contact_messages')
-        .insert([{ ...msg, read: false }])
-        .select()
-        .single();
+        .insert([{ ...msg, read: false }]);
       if (error) throw new Error(error.message);
-      return data as ContactMessage;
+      return;
     }
 
     const local = localStorage.getItem(LOCAL_KEY);
@@ -25,7 +23,6 @@ export const contactService = {
       created_at: new Date().toISOString(),
     };
     localStorage.setItem(LOCAL_KEY, JSON.stringify([newMsg, ...list]));
-    return newMsg;
   },
 
   async getAll(): Promise<ContactMessage[]> {
