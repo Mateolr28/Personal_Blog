@@ -53,10 +53,10 @@ export const TravelPage: React.FC = () => {
           Bitácora Visual
         </span>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl serif font-normal text-white">
-          Viajes & Expediciones
+          Viajes & Experiencias
         </h1>
         <p className="text-sm sm:text-base text-white/50 leading-relaxed font-sans">
-          Un archivo personal de viajes, ciudades recorridas, paisajes naturales y memorias fotográficas.
+          Un archivo personal de viajes, lugares, salidas y experiencias que vale la pena recordar.
         </p>
       </div>
 

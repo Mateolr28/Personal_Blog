@@ -139,6 +139,7 @@ export const AdminAviation: React.FC = () => {
   };
 
   const handleTogglePublish = async (aircraft: Aviation) => {
+    if (!aircraft.id) return;
     try {
       await aviationService.update(aircraft.id, { published: !aircraft.published });
       await loadAviation();
@@ -296,7 +297,7 @@ export const AdminAviation: React.FC = () => {
                     <Edit2 className="w-3.5 h-3.5" />
                   </button>
                   <button
-                    onClick={() => setDeleteId(plane.id)}
+                    onClick={() => plane.id && setDeleteId(plane.id)}
                     className="p-2 rounded-xl bg-neutral-800 hover:bg-red-500/20 text-neutral-300 hover:text-red-400"
                     title="Eliminar"
                   >
