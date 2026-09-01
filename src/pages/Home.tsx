@@ -95,6 +95,18 @@ export const Home: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="lg:col-span-7 space-y-6 text-left"
           >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 flex items-center justify-center border border-blue-400/30 shadow-lg">
+                <Plane className="w-5 h-5 -rotate-45 text-white" />
+              </div>
+              <div className="leading-tight">
+                <div className="text-lg font-semibold text-white tracking-tight">mateolargo.site</div>
+                <div className="text-[11px] text-white/50 font-mono tracking-wide">
+                  https://www.mateolargo.site
+                </div>
+              </div>
+            </div>
+
             {/* Status Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded admin-badge text-[10px] font-mono font-bold tracking-widest uppercase shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -188,10 +200,8 @@ export const Home: React.FC = () => {
                   </>
                 ) : (
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-b from-blue-950/20 to-black">
-                    <div className="w-24 h-24 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-4">
-                      <span className="serif text-3xl font-light text-blue-400">
-                        MR
-                      </span>
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 border border-blue-400/30 shadow-lg flex items-center justify-center mb-4">
+                      <Plane className="w-10 h-10 -rotate-45 text-white" />
                     </div>
                     <div className="text-xs font-mono uppercase tracking-widest text-white/40">
                       Archivo Digital Personal
