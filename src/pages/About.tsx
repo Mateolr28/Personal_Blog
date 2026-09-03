@@ -8,20 +8,15 @@ import {
   Camera,
   Terminal,
   Download,
-  Github,
-  Linkedin,
-  Instagram,
-  Youtube,
   ArrowRight,
   Heart,
-  Globe,
-  Sparkles,
 } from 'lucide-react';
 import { profileService } from '../services/profileService';
 import { technologyService } from '../services/technologyService';
 import { Profile, Technology, SocialLink } from '../types';
 import { TechnologyCard } from '../components/TechnologyCard';
 import { SEO } from '../components/SEO';
+import { SocialLinks } from '../components/SocialLinks';
 
 export const About: React.FC = () => {
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -174,6 +169,19 @@ export const About: React.FC = () => {
               <span>Contacto</span>
             </Link>
           </div>
+
+          {socialLinks.length > 0 && (
+            <div className="space-y-3 pt-2">
+              <p className="text-[10px] font-mono uppercase tracking-wider text-white/40">
+                Redes & Enlaces
+              </p>
+              <SocialLinks
+                links={socialLinks}
+                className="flex flex-wrap items-center gap-2"
+                linkClassName="inline-flex items-center gap-2 px-3 py-2 rounded-sm border border-white/10 text-white/70 hover:text-white hover:border-blue-400/60 transition-colors text-xs font-mono"
+              />
+            </div>
+          )}
         </div>
       </section>
 

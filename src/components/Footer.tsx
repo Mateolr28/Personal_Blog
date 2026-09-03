@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Plane, Github, Linkedin, Instagram, Youtube, Heart, MapPin } from 'lucide-react';
+import { Plane, MapPin } from 'lucide-react';
+import { profileService } from '../services/profileService';
+import { SocialLink } from '../types';
+import { SocialLinks } from './SocialLinks';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const [socialLinks, setSocialLinks] = useState<SocialLink[]>([]);
+
+  useEffect(() => {
+    profileService.getSocialLinks().then(setSocialLinks).catch((error) => {
+      console.error('Error loading footer social links:', error);
+    });
+  }, []);
 
   return (
     <footer id="main-footer" className="border-t border-white/10 bg-[#080808]/90 backdrop-blur-md pt-16 pb-12 text-[#e0e0e0]">
@@ -65,44 +75,11 @@ export const Footer: React.FC = () => {
             <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-white/40">
               Conexión
             </p>
-            <div className="flex items-center gap-2">
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-white/[0.04] border border-white/10 text-white/70 hover:text-white hover:border-blue-500/50 transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="w-4 h-4" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-white/[0.04] border border-white/10 text-white/70 hover:text-white hover:border-blue-500/50 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-white/[0.04] border border-white/10 text-white/70 hover:text-white hover:border-blue-500/50 transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-white/[0.04] border border-white/10 text-white/70 hover:text-white hover:border-blue-500/50 transition-colors"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-4 h-4" />
-              </a>
-            </div>
+            <SocialLinks
+              links={socialLinks}
+              className="flex items-center gap-2"
+              linkClassName="p-2 rounded-lg bg-white/[0.04] border border-white/10 text-white/70 hover:text-white hover:border-blue-500/50 transition-colors"
+            />
           </div>
         </div>
 

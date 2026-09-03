@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import { Mail, Send, CheckCircle2, AlertCircle, MapPin, Github, Linkedin, Instagram, Youtube, Loader2 } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Mail, Send, CheckCircle2, AlertCircle, MapPin, Loader2 } from 'lucide-react';
 import { contactService } from '../services/contactService';
+import { profileService } from '../services/profileService';
+import { SocialLink } from '../types';
 import { SEO } from '../components/SEO';
+import { SocialLinks } from '../components/SocialLinks';
 
 export const ContactPage: React.FC = () => {
   const [name, setName] = useState('');
@@ -11,6 +14,13 @@ export const ContactPage: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [socialLinks, setSocialLinks] = useState<SocialLink[]>([]);
+
+  useEffect(() => {
+    profileService.getSocialLinks().then(setSocialLinks).catch((loadError) => {
+      console.error('Error loading contact social links:', loadError);
+    });
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -112,44 +122,12 @@ export const ContactPage: React.FC = () => {
               <p className="text-xs font-bold uppercase tracking-wider text-neutral-400">
                 Redes & Perfiles
               </p>
-              <div className="flex items-center gap-3">
-                <a
-                  href="https://github.com/Mateolr28"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-2xl bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-sky-500 dark:hover:text-sky-400 border border-neutral-200 dark:border-neutral-700 transition-all hover:scale-105 shadow-sm"
-                  aria-label="GitHub"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-2xl bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-sky-500 dark:hover:text-sky-400 border border-neutral-200 dark:border-neutral-700 transition-all hover:scale-105 shadow-sm"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-2xl bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-sky-500 dark:hover:text-sky-400 border border-neutral-200 dark:border-neutral-700 transition-all hover:scale-105 shadow-sm"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://youtube.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-2xl bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-sky-500 dark:hover:text-sky-400 border border-neutral-200 dark:border-neutral-700 transition-all hover:scale-105 shadow-sm"
-                  aria-label="YouTube"
-                >
-                  <Youtube className="w-5 h-5" />
-                </a>
-              </div>
+              <SocialLinks
+                links={socialLinks}
+                className="flex items-center gap-3"
+                linkClassName="p-3 rounded-2xl bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-sky-500 dark:hover:text-sky-400 border border-neutral-200 dark:border-neutral-700 transition-all hover:scale-105 shadow-sm"
+                iconClassName="w-5 h-5"
+              />
             </div>
           </div>
         </div>
