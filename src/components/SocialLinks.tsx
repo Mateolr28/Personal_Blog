@@ -32,6 +32,33 @@ const getSocialIcon = (link: SocialLink) => {
   return LinkIcon;
 };
 
+const getExternalUrl = (url: string) => {
+  const trimmedUrl = url.trim();
+  if (/^[a-z][a-z\d+.-]*:\/\//i.test(trimmedUrl)) return trimmedUrl;
+  return `https://${trimmedUrl}`;
+};
+
+const getSocialUrl = (link: SocialLink) => {
+  const platform = link.platform.toLowerCase();
+  const icon = link.icon.toLowerCase().trim();
+  const externalUrl = getExternalUrl(link.url);
+
+  if (icon === 'linkedin' || platform.includes('linkedin')) {
+    try {
+      const hostname = new URL(externalUrl).hostname.toLowerCase();
+      if (hostname === 'linkedin.com' || hostname === 'www.linkedin.com') {
+        const pathname = new URL(externalUrl).pathname.toLowerCase();
+        if (pathname.startsWith('/in/') || pathname.startsWith('/pub/')) {
+          return externalUrl;
+        }
+      }
+    } catch {}
+    return 'https://www.linkedin.com/in/mateolr';
+  }
+
+  return externalUrl;
+};
+
 export const SocialLinks: React.FC<SocialLinksProps> = ({
   links,
   className = '',
@@ -47,7 +74,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
         return (
           <a
             key={link.id || `${link.platform}-${index}`}
-            href={link.url}
+            href={getSocialUrl(link)}
             target="_blank"
             rel="noopener noreferrer"
             className={linkClassName}
