@@ -108,6 +108,16 @@ export const profileService = {
   },
 
   async createSocialLink(link: Omit<SocialLink, 'id'>): Promise<SocialLink> {
+    if (isSupabaseConfigured()) {
+      const { data, error } = await supabase
+        .from('social_links')
+        .insert([link])
+        .select()
+        .single();
+      if (error) throw new Error(error.message);
+      return data as SocialLink;
+    }
+
     const current = await this.getSocialLinks();
     const newLink: SocialLink = {
       ...link,

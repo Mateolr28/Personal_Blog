@@ -91,6 +91,7 @@ export const AdminProfile: React.FC = () => {
       setNewSocialUrl('');
     } catch (err: any) {
       console.error('Error adding social link:', err);
+      setErrorMessage(err.message || 'Error al añadir el enlace.');
     }
   };
 
