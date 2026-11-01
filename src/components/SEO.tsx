@@ -1,4 +1,7 @@
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+const SITE_URL = 'https://www.mateolargo.site';
 
 interface SEOProps {
   title?: string;
@@ -6,41 +9,44 @@ interface SEOProps {
   image?: string;
 }
 
+const setMeta = (attr: 'name' | 'property', key: string, content: string) => {
+  let el = document.querySelector(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', content);
+};
+
 export const SEO: React.FC<SEOProps> = ({
   title = 'Mateo Largo | Software Engineer & Aviation Spotter',
   description = 'Portafolio profesional, bitácora de viajes y archivo digital de fotografía aeronáutica.',
-  image = 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=80',
+  image = `${SITE_URL}/og-image.jpg`,
 }) => {
+  const { pathname } = useLocation();
+
   useEffect(() => {
-    // Document title
+    const url = `${SITE_URL}${pathname}`;
+
     document.title = title;
+    setMeta('name', 'description', description);
+    setMeta('property', 'og:title', title);
+    setMeta('property', 'og:description', description);
+    setMeta('property', 'og:image', image);
+    setMeta('property', 'og:url', url);
+    setMeta('name', 'twitter:image', image);
+    // Keep the admin console out of search results
+    setMeta('name', 'robots', pathname.startsWith('/admin') ? 'noindex, nofollow' : 'index, follow');
 
-    // Meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
     }
-    metaDescription.setAttribute('content', description);
-
-    // Open Graph Title
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', title);
-
-    // Open Graph Description
-    let ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute('content', description);
-
-    // Open Graph Image
-    let ogImage = document.querySelector('meta[property="og:image"]');
-    if (!ogImage) {
-      ogImage = document.createElement('meta');
-      ogImage.setAttribute('property', 'og:image');
-      document.head.appendChild(ogImage);
-    }
-    ogImage.setAttribute('content', image);
-  }, [title, description, image]);
+    canonical.setAttribute('href', url);
+  }, [title, description, image, pathname]);
 
   return null;
 };
