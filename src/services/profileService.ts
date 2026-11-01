@@ -8,15 +8,12 @@ const LOCAL_SOCIAL_KEY = 'portfolio_social_links';
 export const profileService = {
   async getProfile(): Promise<Profile> {
     if (isSupabaseConfigured()) {
-      try {
-        const { data, error } = await supabase.from('profiles').select('*').limit(1).single();
-        if (error && error.code !== 'PGRST116') {
-          console.warn('Error fetching profile from Supabase:', error);
-        }
-        if (data) return data as Profile;
-      } catch (err) {
-        console.warn('Profile fetch exception:', err);
-      }
+      const { data, error } = await supabase.from('profiles').select('*').limit(1).single();
+      // PGRST116 = no profile row yet: fall through to the seed profile so the
+      // admin form has a template to create the first one from.
+      if (error && error.code !== 'PGRST116') throw new Error(error.message);
+      if (data) return data as Profile;
+      return initialProfile;
     }
 
     const local = localStorage.getItem(LOCAL_PROFILE_KEY);
@@ -68,16 +65,12 @@ export const profileService = {
 
   async getSocialLinks(): Promise<SocialLink[]> {
     if (isSupabaseConfigured()) {
-      try {
-        const { data, error } = await supabase
-          .from('social_links')
-          .select('*')
-          .order('order_index', { ascending: true });
-        if (error) console.warn('Error fetching social links:', error);
-        if (data && data.length > 0) return data as SocialLink[];
-      } catch (e) {
-        console.warn('Social links fetch exception:', e);
-      }
+      const { data, error } = await supabase
+        .from('social_links')
+        .select('*')
+        .order('order_index', { ascending: true });
+      if (error) throw new Error(error.message);
+      return (data ?? []) as SocialLink[];
     }
 
     const local = localStorage.getItem(LOCAL_SOCIAL_KEY);

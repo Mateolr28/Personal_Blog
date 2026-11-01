@@ -7,16 +7,12 @@ const LOCAL_KEY = 'portfolio_technologies_data';
 export const technologyService = {
   async getAll(): Promise<Technology[]> {
     if (isSupabaseConfigured()) {
-      try {
-        const { data, error } = await supabase
-          .from('technologies')
-          .select('*')
-          .order('order_index', { ascending: true });
-        if (error) console.warn('Error fetching technologies:', error);
-        if (data && data.length > 0) return data as Technology[];
-      } catch (e) {
-        console.warn('Technologies fetch exception:', e);
-      }
+      const { data, error } = await supabase
+        .from('technologies')
+        .select('*')
+        .order('order_index', { ascending: true });
+      if (error) throw new Error(error.message);
+      return (data ?? []) as Technology[];
     }
 
     const local = localStorage.getItem(LOCAL_KEY);

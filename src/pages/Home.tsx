@@ -45,26 +45,25 @@ export const Home: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const [prof, soc, proj, trav, av, tech] = await Promise.all([
-          profileService.getProfile(),
-          profileService.getSocialLinks(),
-          projectService.getAll(true),
-          travelService.getAll(true),
-          aviationService.getAll(true),
-          technologyService.getAll(),
-        ]);
-        setProfile(prof);
-        setSocialLinks(soc);
-        setProjects(proj.slice(0, 3));
-        setTravels(trav.slice(0, 3));
-        setAviationList(av.slice(0, 4));
-        setTechnologies(tech.slice(0, 8));
-      } catch (err) {
-        console.error("Error fetching home data:", err);
-      } finally {
-        setLoading(false);
-      }
+      // allSettled so one failing section doesn't blank the whole page
+      const [prof, soc, proj, trav, av, tech] = await Promise.allSettled([
+        profileService.getProfile(),
+        profileService.getSocialLinks(),
+        projectService.getAll(true),
+        travelService.getAll(true),
+        aviationService.getAll(true),
+        technologyService.getAll(),
+      ]);
+      if (prof.status === "fulfilled") setProfile(prof.value);
+      if (soc.status === "fulfilled") setSocialLinks(soc.value);
+      if (proj.status === "fulfilled") setProjects(proj.value.slice(0, 3));
+      if (trav.status === "fulfilled") setTravels(trav.value.slice(0, 3));
+      if (av.status === "fulfilled") setAviationList(av.value.slice(0, 4));
+      if (tech.status === "fulfilled") setTechnologies(tech.value.slice(0, 8));
+      [prof, soc, proj, trav, av, tech].forEach((result) => {
+        if (result.status === "rejected") console.error("Error fetching home data:", result.reason);
+      });
+      setLoading(false);
     };
     fetchData();
   }, []);

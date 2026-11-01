@@ -7,17 +7,13 @@ const LOCAL_KEY = 'portfolio_projects_data';
 export const projectService = {
   async getAll(onlyPublished: boolean = true): Promise<Project[]> {
     if (isSupabaseConfigured()) {
-      try {
-        let query = supabase.from('projects').select('*').order('order_index', { ascending: true });
-        if (onlyPublished) {
-          query = query.eq('published', true);
-        }
-        const { data, error } = await query;
-        if (error) console.warn('Error fetching projects:', error);
-        if (data && data.length > 0) return data as Project[];
-      } catch (e) {
-        console.warn('Projects fetch exception:', e);
+      let query = supabase.from('projects').select('*').order('order_index', { ascending: true });
+      if (onlyPublished) {
+        query = query.eq('published', true);
       }
+      const { data, error } = await query;
+      if (error) throw new Error(error.message);
+      return (data ?? []) as Project[];
     }
 
     const local = localStorage.getItem(LOCAL_KEY);

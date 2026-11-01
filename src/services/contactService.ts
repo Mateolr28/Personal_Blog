@@ -27,16 +27,12 @@ export const contactService = {
 
   async getAll(): Promise<ContactMessage[]> {
     if (isSupabaseConfigured()) {
-      try {
-        const { data, error } = await supabase
-          .from('contact_messages')
-          .select('*')
-          .order('created_at', { ascending: false });
-        if (error) console.warn('Error fetching messages:', error);
-        if (data) return data as ContactMessage[];
-      } catch (e) {
-        console.warn('Messages fetch exception:', e);
-      }
+      const { data, error } = await supabase
+        .from('contact_messages')
+        .select('*')
+        .order('created_at', { ascending: false });
+      if (error) throw new Error(error.message);
+      return (data ?? []) as ContactMessage[];
     }
 
     const local = localStorage.getItem(LOCAL_KEY);

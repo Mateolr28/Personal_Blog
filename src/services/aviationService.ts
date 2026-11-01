@@ -7,17 +7,13 @@ const LOCAL_KEY = 'portfolio_aviation_data';
 export const aviationService = {
   async getAll(onlyPublished: boolean = true): Promise<Aviation[]> {
     if (isSupabaseConfigured()) {
-      try {
-        let query = supabase.from('aviation').select('*').order('photo_date', { ascending: false });
-        if (onlyPublished) {
-          query = query.eq('published', true);
-        }
-        const { data, error } = await query;
-        if (error) console.warn('Error fetching aviation data:', error);
-        if (data && data.length > 0) return data as Aviation[];
-      } catch (e) {
-        console.warn('Aviation fetch exception:', e);
+      let query = supabase.from('aviation').select('*').order('photo_date', { ascending: false });
+      if (onlyPublished) {
+        query = query.eq('published', true);
       }
+      const { data, error } = await query;
+      if (error) throw new Error(error.message);
+      return (data ?? []) as Aviation[];
     }
 
     const local = localStorage.getItem(LOCAL_KEY);

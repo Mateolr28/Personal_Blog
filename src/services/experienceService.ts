@@ -7,16 +7,12 @@ const LOCAL_KEY = 'portfolio_experiences_data';
 export const experienceService = {
   async getAll(): Promise<Experience[]> {
     if (isSupabaseConfigured()) {
-      try {
-        const { data, error } = await supabase
-          .from('experiences')
-          .select('*')
-          .order('start_date', { ascending: false });
-        if (error) console.warn('Error fetching experiences:', error);
-        if (data && data.length > 0) return data as Experience[];
-      } catch (e) {
-        console.warn('Experiences fetch exception:', e);
-      }
+      const { data, error } = await supabase
+        .from('experiences')
+        .select('*')
+        .order('start_date', { ascending: false });
+      if (error) throw new Error(error.message);
+      return (data ?? []) as Experience[];
     }
 
     const local = localStorage.getItem(LOCAL_KEY);

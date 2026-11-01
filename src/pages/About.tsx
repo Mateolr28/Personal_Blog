@@ -27,20 +27,19 @@ export const About: React.FC = () => {
 
   useEffect(() => {
     const load = async () => {
-      try {
-        const [p, s, t] = await Promise.all([
-          profileService.getProfile(),
-          profileService.getSocialLinks(),
-          technologyService.getAll(),
-        ]);
-        setProfile(p);
-        setSocialLinks(s);
-        setTechnologies(t);
-      } catch (e) {
-        console.error('Error loading about data:', e);
-      } finally {
-        setLoading(false);
-      }
+      // allSettled so one failing section doesn't blank the whole page
+      const [p, s, t] = await Promise.allSettled([
+        profileService.getProfile(),
+        profileService.getSocialLinks(),
+        technologyService.getAll(),
+      ]);
+      if (p.status === 'fulfilled') setProfile(p.value);
+      if (s.status === 'fulfilled') setSocialLinks(s.value);
+      if (t.status === 'fulfilled') setTechnologies(t.value);
+      [p, s, t].forEach((result) => {
+        if (result.status === 'rejected') console.error('Error loading about data:', result.reason);
+      });
+      setLoading(false);
     };
     load();
   }, []);
