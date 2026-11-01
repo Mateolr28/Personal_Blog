@@ -11,17 +11,24 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setThemeState] = useState<Theme>(() => {
-    const saved = localStorage.getItem('portfolio_theme');
-    if (saved === 'light' || saved === 'dark') return saved;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  });
+  // index.html already applied the initial class before first paint; read it back
+  const [theme, setThemeState] = useState<Theme>(() =>
+    document.documentElement.classList.contains('light') ? 'light' : 'dark'
+  );
 
   useEffect(() => {
     const root = document.documentElement;
     root.classList.toggle('dark', theme === 'dark');
     root.classList.toggle('light', theme === 'light');
-    localStorage.setItem('portfolio_theme', theme);
+    // Match the mobile browser bar to the page background
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute('content', theme === 'dark' ? '#0c0e12' : '#f4f6fa');
+    try {
+      localStorage.setItem('portfolio_theme', theme);
+    } catch {
+      // Storage can be unavailable (private mode); the theme still applies for this visit
+    }
   }, [theme]);
 
   const toggleTheme = () => {

@@ -19,7 +19,7 @@ export const AircraftCard: React.FC<AircraftCardProps> = ({ aircraft }) => {
     >
       <div>
         {/* Spotter Photograph */}
-        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg bg-neutral-900 mb-4 border border-white/5">
+        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg bg-neutral-900 mb-4 border border-white/10">
           <img
             src={aircraft.main_image}
             alt={`${aircraft.model} - ${aircraft.registration}`}
@@ -67,7 +67,7 @@ export const AircraftCard: React.FC<AircraftCardProps> = ({ aircraft }) => {
           <div className="flex items-center justify-between text-xs text-white/60 mt-1 mb-2">
             <span className="font-medium text-white/80">{aircraft.airline}</span>
             {aircraft.aircraft_type && (
-              <span className="text-[10px] font-mono text-white/40 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/5">
+              <span className="text-[10px] font-mono text-white/55 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/10">
                 {aircraft.aircraft_type}
               </span>
             )}
@@ -80,7 +80,7 @@ export const AircraftCard: React.FC<AircraftCardProps> = ({ aircraft }) => {
           )}
 
           {/* Media Badges */}
-          <div className="mt-3 flex items-center gap-3 text-[11px] font-mono text-white/40">
+          <div className="mt-3 flex items-center gap-3 text-[11px] font-mono text-white/55">
             <span className="flex items-center gap-1">
               <Camera className="w-3 h-3 text-blue-400" />
               {photosCount} {photosCount === 1 ? 'foto' : 'fotos'}
@@ -96,7 +96,7 @@ export const AircraftCard: React.FC<AircraftCardProps> = ({ aircraft }) => {
       </div>
 
       {/* Action Footer */}
-      <div className="pt-4 mt-4 border-t border-white/5 flex items-center justify-between">
+      <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
         <Link
           to={`/aviation/${aircraft.id || aircraft.registration}`}
           className="inline-flex items-center gap-1 text-xs font-mono uppercase tracking-wider text-blue-400 hover:text-white transition-colors"

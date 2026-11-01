@@ -16,9 +16,9 @@ export const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer id="main-footer" className="border-t border-white/10 bg-[#080808]/90 backdrop-blur-md pt-16 pb-12 text-[#e0e0e0]">
+    <footer id="main-footer" className="border-t border-white/10 bg-neutral-950/90 backdrop-blur-md pt-16 pb-12 text-neutral-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Col 1: Bio */}
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-3 font-bold text-white">
@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
             <p className="text-sm text-white/50 max-w-md leading-relaxed">
               Un archivo digital de proyectos de ingeniería de software, bitácoras de viajes internacionales y fotografía de aviación civil comercial.
             </p>
-            <div className="flex items-center gap-2 text-xs text-white/40 font-mono">
+            <div className="flex items-center gap-2 text-xs text-white/55 font-mono">
               <MapPin className="w-3.5 h-3.5 text-blue-400" />
               <span>Medellín (MDE / SKMDE / SKRG) & Worldwide</span>
             </div>
@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Navigation Links */}
           <div className="space-y-3">
-            <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-white/40">
+            <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-white/55">
               Índice
             </p>
             <ul className="space-y-2 text-sm text-white/60">
@@ -72,7 +72,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Social & Admin Access */}
           <div className="space-y-3">
-            <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-white/40">
+            <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-white/55">
               Conexión
             </p>
             <SocialLinks
@@ -84,7 +84,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom copyright & Status */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] uppercase tracking-widest text-white/40 font-mono gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] uppercase tracking-widest text-white/55 font-mono gap-4">
           <p>© {currentYear} MATEO LARGO ARCHIVE. ALL RIGHTS RESERVED.</p>
         </div>
       </div>

@@ -60,13 +60,13 @@ export const ProjectsPage: React.FC = () => {
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-xl archive-card shadow-sm">
         {/* Search Input */}
         <div className="relative w-full sm:max-w-md">
-          <Search className="w-4 h-4 text-white/40 absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-white/55 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             placeholder="Buscar por título, tecnología o descripción..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 text-xs font-mono bg-white/[0.04] text-white rounded-lg border border-white/10 focus:border-blue-500 focus:outline-none transition-colors placeholder:text-white/30"
+            className="w-full pl-10 pr-4 py-2 text-xs font-mono bg-white/[0.04] text-white rounded-lg border border-white/10 focus:border-blue-500 focus:outline-none transition-colors placeholder:text-white/45"
           />
         </div>
 
@@ -97,12 +97,12 @@ export const ProjectsPage: React.FC = () => {
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="h-80 rounded-xl bg-white/[0.03] border border-white/10 animate-pulse" />
+            <div key={i} className="h-80 rounded-xl bg-white/[0.04] border border-white/10 animate-pulse" />
           ))}
         </div>
       ) : filteredProjects.length === 0 ? (
         <div className="p-14 text-center archive-card rounded-xl border border-dashed border-white/10 space-y-3">
-          <FolderGit2 className="w-10 h-10 text-white/30 mx-auto" />
+          <FolderGit2 className="w-10 h-10 text-white/45 mx-auto" />
           <h3 className="text-base font-semibold text-white/80 serif">
             {projects.length === 0 ? 'No hay proyectos registrados aún' : 'No se encontraron proyectos'}
           </h3>

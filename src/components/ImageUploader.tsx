@@ -93,7 +93,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
   return (
     <div className="w-full space-y-3">
       {label && (
-        <label className="block text-sm font-medium text-neutral-800 dark:text-neutral-200">
+        <label className="block text-sm font-medium text-neutral-200">
           {label}
         </label>
       )}
@@ -108,7 +108,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
         className={`relative flex flex-col items-center justify-center p-6 border-2 border-dashed rounded-xl cursor-pointer transition-all duration-200 ${
           dragActive
             ? 'border-sky-500 bg-sky-500/10'
-            : 'border-neutral-300 dark:border-neutral-700 hover:border-sky-400 dark:hover:border-sky-500 bg-neutral-50/50 dark:bg-neutral-900/50'
+            : ' border-neutral-700 hover:border-sky-500 bg-neutral-900/50'
         }`}
       >
         <input
@@ -127,19 +127,19 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
           </div>
         ) : (
           <div className="flex flex-col items-center text-center gap-1.5">
-            <div className="p-3 rounded-full bg-sky-100 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400">
+            <div className="p-3 rounded-full bg-sky-950/60 text-sky-400">
               <Upload className="w-5 h-5" />
             </div>
-            <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">
+            <p className="text-sm font-medium text-neutral-200">
               Arrastra y suelta aquí o <span className="text-sky-500 underline">haz clic para examinar</span>
             </p>
-            <p className="text-xs text-neutral-500 dark:text-neutral-400">{helperText}</p>
+            <p className="text-xs text-neutral-400">{helperText}</p>
           </div>
         )}
       </div>
 
       {error && (
-        <div className="flex items-center gap-2 p-3 text-xs text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800/60 rounded-lg">
+        <div className="flex items-center gap-2 p-3 text-xs text-red-400 bg-red-950/40 border border-red-800/60 rounded-lg">
           <AlertCircle className="w-4 h-4 shrink-0" />
           <span>{error}</span>
         </div>
@@ -149,7 +149,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
       {images.length > 0 && (
         <div className="mt-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-medium text-neutral-600 dark:text-neutral-400">
+            <span className="text-xs font-medium text-neutral-400">
               {multiple ? `Fotografías subidas (${images.length})` : 'Fotografía seleccionada'}
             </span>
           </div>
@@ -164,7 +164,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
             {images.map((url, idx) => (
               <div
                 key={`${url}-${idx}`}
-                className="group relative aspect-video rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900"
+                className="group relative aspect-video rounded-lg overflow-hidden border border-neutral-800 bg-neutral-900"
               >
                 <img
                   src={url}

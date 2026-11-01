@@ -15,7 +15,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     >
       <div>
         {/* Main Cover Image */}
-        <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-neutral-900 mb-4 border border-white/5">
+        <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-neutral-900 mb-4 border border-white/10">
           <img
             src={project.main_image || 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80'}
             alt={project.title}
@@ -78,7 +78,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               </span>
             ))}
             {project.technologies && project.technologies.length > 3 && (
-              <span className="px-1.5 py-0.5 text-[10px] font-mono text-white/40">
+              <span className="px-1.5 py-0.5 text-[10px] font-mono text-white/55">
                 +{project.technologies.length - 3}
               </span>
             )}
@@ -87,7 +87,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       </div>
 
       {/* Footer Actions */}
-      <div className="flex items-center justify-between pt-4 mt-4 border-t border-white/5">
+      <div className="flex items-center justify-between pt-4 mt-4 border-t border-white/10">
         <Link
           to={`/projects/${project.slug || project.id}`}
           className="inline-flex items-center gap-1 text-xs font-mono uppercase tracking-wider text-blue-400 hover:text-white transition-colors"
@@ -102,7 +102,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               href={project.github_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-1 text-white/40 hover:text-white transition-colors"
+              className="p-1 text-white/55 hover:text-white transition-colors"
               title="Ver código en GitHub"
             >
               <Github className="w-3.5 h-3.5" />
@@ -113,7 +113,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               href={project.demo_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-1 text-white/40 hover:text-blue-400 transition-colors"
+              className="p-1 text-white/55 hover:text-blue-400 transition-colors"
               title="Ver Demo en Vivo"
             >
               <ExternalLink className="w-3.5 h-3.5" />

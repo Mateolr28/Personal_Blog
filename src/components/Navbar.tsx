@@ -42,8 +42,8 @@ export const Navbar: React.FC = () => {
       id="main-header"
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#080808]/90 backdrop-blur-xl border-b border-white/10 shadow-2xl py-3.5'
-          : 'bg-transparent border-b border-white/5 py-4'
+          ? 'bg-neutral-950/90 backdrop-blur-xl border-b border-white/10 shadow-2xl py-3.5'
+          : 'bg-transparent border-b border-white/10 py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -58,14 +58,14 @@ export const Navbar: React.FC = () => {
           </div>
           <div className="flex flex-col">
             <span className="text-base font-bold tracking-tight serif italic">ML.ARCHIVE</span>
-            <span className="text-[9px] text-white/40 font-mono tracking-widest uppercase">
+            <span className="text-[9px] text-white/55 font-mono tracking-widest uppercase">
               DEV • EXPLORER • AVIATION
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav id="desktop-nav" className="hidden md:flex items-center gap-1 bg-white/[0.03] backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+        <nav id="desktop-nav" className="hidden md:flex items-center gap-1 bg-white/[0.04] backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -115,7 +115,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div id="mobile-menu-drawer" className="md:hidden bg-[#080808]/98 backdrop-blur-2xl border-b border-white/10 px-6 py-5 space-y-2 shadow-2xl animate-in slide-in-from-top-4 duration-200">
+        <div id="mobile-menu-drawer" className="md:hidden bg-neutral-950/98 backdrop-blur-2xl border-b border-white/10 px-6 py-5 space-y-2 shadow-2xl animate-in slide-in-from-top-4 duration-200">
           {navLinks.map((link) => (
             <Link
               key={link.path}

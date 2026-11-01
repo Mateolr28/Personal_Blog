@@ -48,12 +48,12 @@ export const ExperiencePage: React.FC = () => {
         {loading ? (
           <div className="space-y-6">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="h-40 rounded-xl bg-white/[0.03] border border-white/10 animate-pulse" />
+              <div key={i} className="h-40 rounded-xl bg-white/[0.04] border border-white/10 animate-pulse" />
             ))}
           </div>
         ) : experiences.length === 0 ? (
           <div className="p-12 text-center archive-card rounded-xl border border-dashed border-white/10 space-y-3">
-            <Briefcase className="w-8 h-8 text-white/30 mx-auto" />
+            <Briefcase className="w-8 h-8 text-white/45 mx-auto" />
             <p className="text-sm font-semibold text-white/70 serif">No hay experiencias registradas aún.</p>
           </div>
         ) : (

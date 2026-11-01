@@ -44,8 +44,8 @@ export const ProjectDetailPage: React.FC = () => {
   if (loading) {
     return (
       <div className="max-w-5xl mx-auto px-4 py-20">
-        <div className="h-10 w-48 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse mb-8" />
-        <div className="aspect-video w-full bg-neutral-200 dark:bg-neutral-800 rounded-3xl animate-pulse" />
+        <div className="h-10 w-48 bg-neutral-800 rounded animate-pulse mb-8" />
+        <div className="aspect-video w-full bg-neutral-800 rounded-3xl animate-pulse" />
       </div>
     );
   }
@@ -53,7 +53,7 @@ export const ProjectDetailPage: React.FC = () => {
   if (!project) {
     return (
       <div className="max-w-xl mx-auto px-4 py-20 text-center space-y-4">
-        <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">
+        <h2 className="text-2xl font-bold text-white">
           Proyecto no encontrado
         </h2>
         <p className="text-sm text-neutral-500">
@@ -96,7 +96,7 @@ export const ProjectDetailPage: React.FC = () => {
       {/* Back Button */}
       <button
         onClick={() => navigate('/projects')}
-        className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-600 dark:text-neutral-400 hover:text-sky-500 transition-colors"
+        className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-400 hover:text-sky-500 transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Volver a Proyectos</span>
@@ -114,10 +114,10 @@ export const ProjectDetailPage: React.FC = () => {
           <span
             className={`px-3 py-1 text-xs font-semibold rounded-full capitalize ${
               project.status === 'completed'
-                ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/80 dark:text-emerald-300'
+                ? ' bg-emerald-950/80 text-emerald-300'
                 : project.status === 'development'
-                ? 'bg-sky-100 text-sky-700 dark:bg-sky-950/80 dark:text-sky-300'
-                : 'bg-amber-100 text-amber-700 dark:bg-amber-950/80 dark:text-amber-300'
+                ? ' bg-sky-950/80 text-sky-300'
+                : ' bg-amber-950/80 text-amber-300'
             }`}
           >
             {project.status === 'completed'
@@ -127,18 +127,18 @@ export const ProjectDetailPage: React.FC = () => {
               : 'Pausado'}
           </span>
           {project.date && (
-            <span className="flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400 font-mono">
+            <span className="flex items-center gap-1 text-xs text-neutral-400 font-mono">
               <Calendar className="w-3.5 h-3.5" />
               {formatDate(project.date)}
             </span>
           )}
         </div>
 
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral-900 dark:text-white leading-tight">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
           {project.title}
         </h1>
 
-        <p className="text-lg text-neutral-600 dark:text-neutral-300 max-w-3xl leading-relaxed">
+        <p className="text-lg text-neutral-300 max-w-3xl leading-relaxed">
           {project.short_description}
         </p>
 
@@ -160,7 +160,7 @@ export const ProjectDetailPage: React.FC = () => {
               href={project.github_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100 font-semibold text-sm shadow transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-neutral-900 hover:bg-neutral-100 font-semibold text-sm shadow transition-all hover:scale-105"
             >
               <Github className="w-4 h-4" />
               <span>Ver Repositorio GitHub</span>
@@ -173,7 +173,7 @@ export const ProjectDetailPage: React.FC = () => {
       {project.main_image && (
         <div
           onClick={() => handleOpenLightbox(0)}
-          className="group relative aspect-video w-full rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 cursor-pointer shadow-xl bg-neutral-100 dark:bg-neutral-900"
+          className="group relative aspect-video w-full rounded-3xl overflow-hidden border border-neutral-800 cursor-pointer shadow-xl bg-neutral-900"
         >
           <img
             src={project.main_image}
@@ -191,8 +191,8 @@ export const ProjectDetailPage: React.FC = () => {
 
       {/* Tech Stack Chips */}
       {project.technologies && project.technologies.length > 0 && (
-        <div className="p-6 rounded-2xl bg-neutral-100/70 dark:bg-neutral-900/60 border border-neutral-200/80 dark:border-neutral-800/80 space-y-3">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+        <div className="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800/80 space-y-3">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-neutral-400">
             <Layers className="w-4 h-4 text-sky-500" />
             <span>Tecnologías & Arquitectura</span>
           </div>
@@ -200,7 +200,7 @@ export const ProjectDetailPage: React.FC = () => {
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 rounded-lg text-xs font-semibold bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-200 dark:border-neutral-700 shadow-sm"
+                className="px-3 py-1 rounded-lg text-xs font-semibold bg-neutral-800 text-neutral-200 border border-neutral-700 shadow-sm"
               >
                 {tech}
               </span>
@@ -211,10 +211,10 @@ export const ProjectDetailPage: React.FC = () => {
 
       {/* Full Description & Overview */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">
+        <h2 className="text-2xl font-bold text-white">
           Descripción del Proyecto
         </h2>
-        <div className="prose dark:prose-invert max-w-none text-base text-neutral-700 dark:text-neutral-300 leading-relaxed whitespace-pre-line">
+        <div className="prose prose-invert max-w-none text-base text-neutral-300 leading-relaxed whitespace-pre-line">
           {project.full_description || project.short_description}
         </div>
       </div>
@@ -224,7 +224,7 @@ export const ProjectDetailPage: React.FC = () => {
         <div className="space-y-6 pt-4">
           <div className="flex items-center gap-2">
             <Play className="w-5 h-5 text-sky-500" />
-            <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-white">
               Demostraciones en Video
             </h2>
           </div>
@@ -241,7 +241,7 @@ export const ProjectDetailPage: React.FC = () => {
         <div className="space-y-6 pt-4">
           <div className="flex items-center gap-2">
             <ImageIcon className="w-5 h-5 text-sky-500" />
-            <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-white">
               Galería de Capturas
             </h2>
           </div>
@@ -252,7 +252,7 @@ export const ProjectDetailPage: React.FC = () => {
                 <div
                   key={idx}
                   onClick={() => handleOpenLightbox(globalIndex)}
-                  className="group relative aspect-video rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 cursor-pointer shadow hover:shadow-lg transition-all hover:scale-[1.02]"
+                  className="group relative aspect-video rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 cursor-pointer shadow hover:shadow-lg transition-all hover:scale-[1.02]"
                 >
                   <img
                     src={imgUrl}

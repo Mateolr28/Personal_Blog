@@ -45,8 +45,8 @@ export const AviationDetailPage: React.FC = () => {
   if (loading) {
     return (
       <div className="max-w-5xl mx-auto px-4 py-20">
-        <div className="h-10 w-48 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse mb-8" />
-        <div className="aspect-[16/10] w-full bg-neutral-200 dark:bg-neutral-800 rounded-3xl animate-pulse" />
+        <div className="h-10 w-48 bg-neutral-800 rounded animate-pulse mb-8" />
+        <div className="aspect-[16/10] w-full bg-neutral-800 rounded-3xl animate-pulse" />
       </div>
     );
   }
@@ -54,7 +54,7 @@ export const AviationDetailPage: React.FC = () => {
   if (!aircraft) {
     return (
       <div className="max-w-xl mx-auto px-4 py-20 text-center space-y-4">
-        <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">
+        <h2 className="text-2xl font-bold text-white">
           Registro no encontrado
         </h2>
         <p className="text-sm text-neutral-500">
@@ -106,7 +106,7 @@ export const AviationDetailPage: React.FC = () => {
       {/* Back Button */}
       <button
         onClick={() => navigate('/aviation')}
-        className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-600 dark:text-neutral-400 hover:text-sky-500 transition-colors"
+        className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-400 hover:text-sky-500 transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Volver a Aviación</span>
@@ -115,26 +115,26 @@ export const AviationDetailPage: React.FC = () => {
       {/* Header Technical Banner */}
       <div className="space-y-4">
         <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-2 px-4 py-1.5 bg-neutral-900 dark:bg-sky-950 text-sky-400 border border-sky-500/40 rounded-xl font-mono text-base font-bold tracking-wider shadow">
+          <div className="flex items-center gap-2 px-4 py-1.5 bg-sky-950 text-sky-400 border border-sky-500/40 rounded-xl font-mono text-base font-bold tracking-wider shadow">
             <Plane className="w-4 h-4" />
             <span>{aircraft.registration}</span>
           </div>
 
-          <span className="px-3 py-1 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-xs font-semibold rounded-lg">
+          <span className="px-3 py-1 bg-neutral-800 text-neutral-300 text-xs font-semibold rounded-lg">
             {aircraft.manufacturer}
           </span>
 
-          <span className="flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400 font-mono">
+          <span className="flex items-center gap-1 text-xs text-neutral-400 font-mono">
             <Calendar className="w-3.5 h-3.5" />
             {formatDate(aircraft.photo_date)}
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral-900 dark:text-white leading-tight">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
           {aircraft.model}
         </h1>
 
-        <p className="text-xl font-semibold text-sky-600 dark:text-sky-400">
+        <p className="text-xl font-semibold text-sky-400">
           {aircraft.airline} {aircraft.operator && `(Operado por ${aircraft.operator})`}
         </p>
       </div>
@@ -143,7 +143,7 @@ export const AviationDetailPage: React.FC = () => {
       {aircraft.main_image && (
         <div
           onClick={() => handleOpenLightbox(0)}
-          className="group relative aspect-[16/10] w-full rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 cursor-pointer shadow-2xl bg-neutral-100 dark:bg-neutral-900"
+          className="group relative aspect-[16/10] w-full rounded-3xl overflow-hidden border border-neutral-800 cursor-pointer shadow-2xl bg-neutral-900"
         >
           <img
             src={aircraft.main_image}
@@ -160,55 +160,55 @@ export const AviationDetailPage: React.FC = () => {
       )}
 
       {/* Technical Specifications Grid */}
-      <div className="p-6 rounded-3xl bg-neutral-100/80 dark:bg-neutral-900/70 border border-neutral-200/80 dark:border-neutral-800/80 space-y-4">
-        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
+      <div className="p-6 rounded-3xl bg-neutral-900/70 border border-neutral-800/80 space-y-4">
+        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-neutral-400">
           <Plane className="w-4 h-4 text-sky-500" />
           <span>Ficha Técnica de Spotting</span>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-sm">
-          <div className="p-3.5 rounded-2xl bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60">
+          <div className="p-3.5 rounded-2xl bg-neutral-800 border border-neutral-700/60">
             <p className="text-[11px] text-neutral-500 uppercase font-mono">Matrícula</p>
-            <p className="font-bold text-neutral-900 dark:text-white font-mono">{aircraft.registration}</p>
+            <p className="font-bold text-white font-mono">{aircraft.registration}</p>
           </div>
 
-          <div className="p-3.5 rounded-2xl bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60">
+          <div className="p-3.5 rounded-2xl bg-neutral-800 border border-neutral-700/60">
             <p className="text-[11px] text-neutral-500 uppercase font-mono">Modelo</p>
-            <p className="font-bold text-neutral-900 dark:text-white">{aircraft.model}</p>
+            <p className="font-bold text-white">{aircraft.model}</p>
           </div>
 
-          <div className="p-3.5 rounded-2xl bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60">
+          <div className="p-3.5 rounded-2xl bg-neutral-800 border border-neutral-700/60">
             <p className="text-[11px] text-neutral-500 uppercase font-mono">Fabricante</p>
-            <p className="font-bold text-neutral-900 dark:text-white">{aircraft.manufacturer}</p>
+            <p className="font-bold text-white">{aircraft.manufacturer}</p>
           </div>
 
-          <div className="p-3.5 rounded-2xl bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60">
+          <div className="p-3.5 rounded-2xl bg-neutral-800 border border-neutral-700/60">
             <p className="text-[11px] text-neutral-500 uppercase font-mono">Aerolínea</p>
-            <p className="font-bold text-neutral-900 dark:text-white">{aircraft.airline}</p>
+            <p className="font-bold text-white">{aircraft.airline}</p>
           </div>
 
-          <div className="p-3.5 rounded-2xl bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60">
+          <div className="p-3.5 rounded-2xl bg-neutral-800 border border-neutral-700/60">
             <p className="text-[11px] text-neutral-500 uppercase font-mono">Aeropuerto</p>
-            <p className="font-bold text-neutral-900 dark:text-white truncate">
+            <p className="font-bold text-white truncate">
               {aircraft.airport_code} - {aircraft.airport_name}
             </p>
           </div>
 
-          <div className="p-3.5 rounded-2xl bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60">
+          <div className="p-3.5 rounded-2xl bg-neutral-800 border border-neutral-700/60">
             <p className="text-[11px] text-neutral-500 uppercase font-mono">Ciudad & País</p>
-            <p className="font-bold text-neutral-900 dark:text-white">
+            <p className="font-bold text-white">
               {aircraft.city}, {aircraft.country}
             </p>
           </div>
 
-          <div className="p-3.5 rounded-2xl bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60">
+          <div className="p-3.5 rounded-2xl bg-neutral-800 border border-neutral-700/60">
             <p className="text-[11px] text-neutral-500 uppercase font-mono">Tipo de Aeronave</p>
-            <p className="font-bold text-neutral-900 dark:text-white">{aircraft.aircraft_type || 'Comercial'}</p>
+            <p className="font-bold text-white">{aircraft.aircraft_type || 'Comercial'}</p>
           </div>
 
-          <div className="p-3.5 rounded-2xl bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60">
+          <div className="p-3.5 rounded-2xl bg-neutral-800 border border-neutral-700/60">
             <p className="text-[11px] text-neutral-500 uppercase font-mono">Número de vuelo</p>
-            <p className="font-bold text-neutral-900 dark:text-white font-mono">{aircraft.serial_number || 'N/D'}</p>
+            <p className="font-bold text-white font-mono">{aircraft.serial_number || 'N/D'}</p>
           </div>
         </div>
       </div>
@@ -216,10 +216,10 @@ export const AviationDetailPage: React.FC = () => {
       {/* Description / Spotting Notes */}
       {aircraft.description && (
         <div className="space-y-3">
-          <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">
+          <h2 className="text-2xl font-bold text-white">
             Notas de Avistamiento
           </h2>
-          <p className="text-base text-neutral-700 dark:text-neutral-300 leading-relaxed whitespace-pre-line">
+          <p className="text-base text-neutral-300 leading-relaxed whitespace-pre-line">
             {aircraft.description}
           </p>
         </div>
@@ -230,7 +230,7 @@ export const AviationDetailPage: React.FC = () => {
         <div className="space-y-6 pt-4">
           <div className="flex items-center gap-2">
             <Play className="w-5 h-5 text-sky-500" />
-            <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-white">
               Videos & Tomas en Movimiento
             </h2>
           </div>
@@ -247,7 +247,7 @@ export const AviationDetailPage: React.FC = () => {
         <div className="space-y-6 pt-4">
           <div className="flex items-center gap-2">
             <Camera className="w-5 h-5 text-sky-500" />
-            <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">
+            <h2 className="text-2xl font-bold text-white">
               Galería de Ángulos & Detalles ({aircraft.gallery.length} fotos)
             </h2>
           </div>
@@ -258,7 +258,7 @@ export const AviationDetailPage: React.FC = () => {
                 <div
                   key={idx}
                   onClick={() => handleOpenLightbox(globalIndex)}
-                  className="group relative aspect-[16/10] rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 cursor-pointer shadow hover:shadow-lg transition-all hover:scale-[1.02]"
+                  className="group relative aspect-[16/10] rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 cursor-pointer shadow hover:shadow-lg transition-all hover:scale-[1.02]"
                 >
                   <img
                     src={imgUrl}

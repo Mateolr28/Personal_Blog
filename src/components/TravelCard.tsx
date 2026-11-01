@@ -18,7 +18,7 @@ export const TravelCard: React.FC<TravelCardProps> = ({ travel }) => {
     >
       <div>
         {/* Cover Image */}
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-neutral-900 mb-4 border border-white/5">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-neutral-900 mb-4 border border-white/10">
           <img
             src={travel.main_image || 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80'}
             alt={travel.title}
@@ -81,7 +81,7 @@ export const TravelCard: React.FC<TravelCardProps> = ({ travel }) => {
                 </span>
               ))}
               {travel.places_visited.length > 3 && (
-                <span className="text-[10px] font-mono px-1.5 py-0.5 text-white/40">
+                <span className="text-[10px] font-mono px-1.5 py-0.5 text-white/55">
                   +{travel.places_visited.length - 3}
                 </span>
               )}
@@ -91,7 +91,7 @@ export const TravelCard: React.FC<TravelCardProps> = ({ travel }) => {
       </div>
 
       {/* Action Footer */}
-      <div className="pt-4 mt-4 border-t border-white/5">
+      <div className="pt-4 mt-4 border-t border-white/10">
         <Link
           to={`/travel/${travel.slug || travel.id}`}
           className="inline-flex items-center gap-1 text-xs font-mono uppercase tracking-wider text-blue-400 hover:text-white transition-colors"

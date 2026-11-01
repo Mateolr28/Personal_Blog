@@ -26,13 +26,13 @@ const getCategoryIcon = (category: string) => {
 const getLevelBadgeColor = (level: string) => {
   switch (level) {
     case 'Expert':
-      return 'bg-purple-100 text-purple-700 dark:bg-purple-950/60 dark:text-purple-300 border-purple-200 dark:border-purple-800/40';
+      return ' bg-purple-950/60 text-purple-300 border-purple-800/40';
     case 'Advanced':
-      return 'bg-sky-100 text-sky-700 dark:bg-sky-950/60 dark:text-sky-300 border-sky-200 dark:border-sky-800/40';
+      return ' bg-sky-950/60 text-sky-300 border-sky-800/40';
     case 'Intermediate':
-      return 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800/40';
+      return ' bg-emerald-950/60 text-emerald-300 border-emerald-800/40';
     default:
-      return 'bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 border-neutral-200 dark:border-neutral-700';
+      return ' bg-neutral-800 text-neutral-300 border-neutral-700';
   }
 };
 
@@ -57,7 +57,7 @@ export const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) =>
           </span>
         </div>
 
-        <div className="text-[10px] text-white/40 font-mono tracking-wider uppercase mb-0.5">
+        <div className="text-[10px] text-white/55 font-mono tracking-wider uppercase mb-0.5">
           {technology.category}
         </div>
 
@@ -72,7 +72,7 @@ export const TechnologyCard: React.FC<TechnologyCardProps> = ({ technology }) =>
         )}
       </div>
 
-      <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[10px] text-white/40 font-mono">
+      <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] text-white/55 font-mono">
         <span>STACK / {technology.category.toUpperCase()}</span>
         {technology.years_of_experience && (
           <span>{technology.years_of_experience} {technology.years_of_experience === 1 ? 'año' : 'años'}</span>

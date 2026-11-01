@@ -12,9 +12,9 @@ export const VideoEmbed: React.FC<VideoEmbedProps> = ({ video, className = '' })
   const { type, embedUrl } = getEmbedUrl(video.url, video.platform);
 
   return (
-    <div className={`overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800 bg-black ${className}`}>
+    <div className={`overflow-hidden rounded-xl border border-neutral-800 bg-black ${className}`}>
       {video.title && (
-        <div className="flex items-center justify-between px-4 py-2.5 bg-neutral-100 dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 text-xs font-medium text-neutral-700 dark:text-neutral-300">
+        <div className="flex items-center justify-between px-4 py-2.5 bg-neutral-900 border-b border-neutral-800 text-xs font-medium text-neutral-300">
           <div className="flex items-center gap-2">
             <Play className="w-3.5 h-3.5 text-sky-500 fill-sky-500" />
             <span className="truncate">{video.title}</span>

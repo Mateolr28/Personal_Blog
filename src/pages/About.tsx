@@ -77,7 +77,7 @@ export const About: React.FC = () => {
                   <div className="w-24 h-24 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-3">
                     <span className="serif text-3xl font-light text-blue-400">MR</span>
                   </div>
-                  <span className="text-xs font-mono uppercase tracking-wider text-white/40">
+                  <span className="text-xs font-mono uppercase tracking-wider text-white/55">
                     {profile?.full_name || 'Mateo Largo'}
                   </span>
                 </div>
@@ -134,7 +134,7 @@ export const About: React.FC = () => {
           {/* Interests Chips */}
           {profile?.interests && profile.interests.length > 0 && (
             <div className="space-y-2 pt-2">
-              <p className="text-[10px] font-mono uppercase tracking-wider text-white/40">
+              <p className="text-[10px] font-mono uppercase tracking-wider text-white/55">
                 Áreas de Interés
               </p>
               <div className="flex flex-wrap gap-2">
@@ -171,7 +171,7 @@ export const About: React.FC = () => {
 
           {socialLinks.length > 0 && (
             <div className="space-y-3 pt-2">
-              <p className="text-[10px] font-mono uppercase tracking-wider text-white/40">
+              <p className="text-[10px] font-mono uppercase tracking-wider text-white/55">
                 Redes & Enlaces
               </p>
               <SocialLinks
@@ -188,7 +188,7 @@ export const About: React.FC = () => {
       {/* 2. TECHNOLOGIES & STACK CATALOG */}
       {/* ========================================================================= */}
       <section className="space-y-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/5 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-4">
           <div>
             <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-blue-400">
               Conocimientos
@@ -203,7 +203,7 @@ export const About: React.FC = () => {
 
           {/* Filter Pills */}
           {categories.length > 0 && technologies.length > 0 && (
-            <div className="flex flex-wrap gap-1.5 p-1 rounded-lg bg-white/[0.03] border border-white/10">
+            <div className="flex flex-wrap gap-1.5 p-1 rounded-lg bg-white/[0.04] border border-white/10">
               {categories.map((cat) => (
                 <button
                   key={cat}
@@ -222,7 +222,7 @@ export const About: React.FC = () => {
         </div>
 
         {filteredTechnologies.length === 0 ? (
-          <div className="p-10 rounded-xl archive-card text-center text-white/40 font-mono text-xs border border-dashed border-white/10">
+          <div className="p-10 rounded-xl archive-card text-center text-white/55 font-mono text-xs border border-dashed border-white/10">
             <span>No hay tecnologías registradas en esta categoría aún.</span>
           </div>
         ) : (

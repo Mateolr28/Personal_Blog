@@ -14,7 +14,7 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) =>
       className="relative pl-8 sm:pl-10 group before:absolute before:left-3 sm:before:left-4 before:top-3 before:bottom-0 before:w-px before:bg-white/10 last:before:hidden pb-10"
     >
       {/* Node Dot */}
-      <div className="absolute left-1.5 sm:left-2.5 top-1.5 w-3.5 h-3.5 rounded-full border border-blue-400 bg-[#080808] group-hover:scale-125 transition-transform" />
+      <div className="absolute left-1.5 sm:left-2.5 top-1.5 w-3.5 h-3.5 rounded-full border border-blue-400 bg-neutral-950 group-hover:scale-125 transition-transform" />
 
       <div className="p-6 rounded-xl archive-card">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
@@ -31,7 +31,7 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) =>
             </p>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-mono text-white/40">
+          <div className="flex items-center gap-2 text-xs font-mono text-white/55">
             <Calendar className="w-3.5 h-3.5" />
             <span>
               {formatDate(experience.start_date)} -{' '}
@@ -61,7 +61,7 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) =>
 
         {experience.achievements && experience.achievements.length > 0 && (
           <div className="mt-4 space-y-1.5">
-            <p className="text-[10px] font-mono uppercase tracking-wider text-white/40">
+            <p className="text-[10px] font-mono uppercase tracking-wider text-white/55">
               Puntos destacados
             </p>
             {experience.achievements.map((achievement, idx) => (
@@ -74,7 +74,7 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) =>
         )}
 
         {experience.technologies && experience.technologies.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
+          <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-white/10">
             {experience.technologies.map((tech) => (
               <span
                 key={tech}

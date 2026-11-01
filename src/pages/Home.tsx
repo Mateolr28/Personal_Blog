@@ -157,7 +157,7 @@ export const Home: React.FC = () => {
             </div>
 
             {/* Core Tech Minimal Row */}
-            <div className="pt-6 border-t border-white/5 flex items-center gap-6 text-white/40">
+            <div className="pt-6 border-t border-white/10 flex items-center gap-6 text-white/55">
               <span className="text-[10px] uppercase tracking-[0.2em] font-mono">
                 Core Stack
               </span>
@@ -195,17 +195,17 @@ export const Home: React.FC = () => {
                       className="w-full h-full object-cover absolute inset-0"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   </>
                 ) : (
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-b from-blue-950/20 to-black">
                     <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 border border-blue-400/30 shadow-lg flex items-center justify-center mb-4">
                       <Plane className="w-10 h-10 -rotate-45 text-white" />
                     </div>
-                    <div className="text-xs font-mono uppercase tracking-widest text-white/40">
+                    <div className="text-xs font-mono uppercase tracking-widest text-white/55">
                       Archivo Digital Personal
                     </div>
-                    <div className="text-[10px] font-mono text-white/30 mt-1">
+                    <div className="text-[10px] font-mono text-white/45 mt-1">
                       {profile?.email || "mateolriadev@gmail.com"}
                     </div>
                   </div>
@@ -236,7 +236,7 @@ export const Home: React.FC = () => {
       {/* 2. CORE TECHNOLOGIES & STACK */}
       {/* ========================================================================= */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 border-b border-white/5 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 border-b border-white/10 pb-4">
           <div>
             <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-blue-400">
               Stack Tecnológico
@@ -255,7 +255,7 @@ export const Home: React.FC = () => {
         </div>
 
         {technologies.length === 0 ? (
-          <div className="p-8 rounded-xl archive-card text-center text-white/40 font-mono text-xs border border-dashed border-white/10">
+          <div className="p-8 rounded-xl archive-card text-center text-white/55 font-mono text-xs border border-dashed border-white/10">
             <span>No hay tecnologías registradas aún.</span>
           </div>
         ) : (
@@ -271,7 +271,7 @@ export const Home: React.FC = () => {
                     {tech.name}
                   </span>
                 </div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-white/40">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-white/55">
                   {tech.level}
                 </span>
               </div>
@@ -284,7 +284,7 @@ export const Home: React.FC = () => {
       {/* 3. FEATURED PROJECTS */}
       {/* ========================================================================= */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 border-b border-white/5 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 border-b border-white/10 pb-4">
           <div>
             <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-blue-400">
               Desarrollo & Software
@@ -304,7 +304,7 @@ export const Home: React.FC = () => {
 
         {projects.length === 0 ? (
           <div className="p-12 rounded-xl archive-card text-center space-y-3 border border-dashed border-white/10">
-            <FolderGit2 className="w-8 h-8 text-white/30 mx-auto" />
+            <FolderGit2 className="w-8 h-8 text-white/45 mx-auto" />
             <h3 className="text-sm font-semibold text-white/80 serif">
               No hay proyectos publicados aún
             </h3>
@@ -322,11 +322,11 @@ export const Home: React.FC = () => {
       {/* 4. AVIATION SPOTTER ARCHIVE TEASER */}
       {/* ========================================================================= */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="p-8 sm:p-10 rounded-2xl bg-white/[0.02] border border-white/10 text-white shadow-2xl relative overflow-hidden">
+        <div className="p-8 sm:p-10 rounded-2xl bg-white/[0.04] border border-white/10 text-white shadow-2xl relative overflow-hidden">
           {/* Subtle plane silhouette decor */}
           <Plane className="absolute right-[-40px] top-[-40px] w-96 h-96 text-white/[0.02] pointer-events-none -rotate-12" />
 
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-8 relative z-10 border-b border-white/5 pb-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-8 relative z-10 border-b border-white/10 pb-6">
             <div>
               <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-blue-950/60 text-blue-400 text-[10px] font-mono uppercase tracking-widest border border-blue-500/30 mb-3">
                 <Plane className="w-3 h-3 -rotate-45" />
@@ -353,8 +353,8 @@ export const Home: React.FC = () => {
           {/* Aviation Spotting Grid */}
           {aviationList.length === 0 ? (
             <div className="p-10 rounded-xl archive-card text-center space-y-2 relative z-10 border border-dashed border-white/10">
-              <Plane className="w-8 h-8 text-white/30 mx-auto -rotate-45" />
-              <p className="text-xs text-white/40 font-mono">
+              <Plane className="w-8 h-8 text-white/45 mx-auto -rotate-45" />
+              <p className="text-xs text-white/55 font-mono">
                 No hay aeronaves registradas en el archivo todavía.
               </p>
             </div>
@@ -372,7 +372,7 @@ export const Home: React.FC = () => {
       {/* 5. RECENT TRAVELS */}
       {/* ========================================================================= */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 border-b border-white/5 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 border-b border-white/10 pb-4">
           <div>
             <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-blue-400">
               Bitácora Fotográfica
@@ -392,11 +392,11 @@ export const Home: React.FC = () => {
 
         {travels.length === 0 ? (
           <div className="p-12 rounded-xl archive-card text-center space-y-3 border border-dashed border-white/10">
-            <Compass className="w-8 h-8 text-white/30 mx-auto" />
+            <Compass className="w-8 h-8 text-white/45 mx-auto" />
             <h3 className="text-sm font-semibold text-white/80 serif">
               No hay bitácoras de viaje publicadas aún
             </h3>
-            <p className="text-xs text-white/40 font-mono max-w-md mx-auto">
+            <p className="text-xs text-white/55 font-mono max-w-md mx-auto">
               Las bitácoras de viajes y expediciones que agregues aparecerán
               aquí.
             </p>
@@ -414,7 +414,7 @@ export const Home: React.FC = () => {
       {/* 6. CONTACT CTA */}
       {/* ========================================================================= */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="p-8 sm:p-12 rounded-2xl bg-white/[0.02] border border-white/10 text-center space-y-6">
+        <div className="p-8 sm:p-12 rounded-2xl bg-white/[0.04] border border-white/10 text-center space-y-6">
           <div className="w-12 h-12 rounded-xl bg-blue-600/10 text-blue-400 border border-blue-500/20 flex items-center justify-center mx-auto">
             <Mail className="w-5 h-5" />
           </div>

@@ -79,7 +79,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
     <AnimatePresence>
       <div
         id="lightbox-container"
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-4 sm:p-6 select-none"
+        className="theme-dark fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-4 sm:p-6 select-none"
         onClick={(e) => {
           if (e.target === e.currentTarget) onClose();
         }}

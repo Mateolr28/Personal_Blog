@@ -77,7 +77,7 @@ export const AviationPage: React.FC = () => {
       />
 
       {/* Header Banner */}
-      <div className="p-8 sm:p-12 rounded-2xl bg-white/[0.02] text-white border border-white/10 shadow-2xl relative overflow-hidden archive-card">
+      <div className="p-8 sm:p-12 rounded-2xl bg-white/[0.04] text-white border border-white/10 shadow-2xl relative overflow-hidden archive-card">
         <Plane className="absolute right-[-20px] top-[-20px] w-80 h-80 text-white/[0.03] pointer-events-none -rotate-45" />
 
         <div className="max-w-3xl space-y-4 relative z-10">
@@ -101,13 +101,13 @@ export const AviationPage: React.FC = () => {
         <div className="p-4 rounded-xl archive-card shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3">
           {/* Quick Search */}
           <div className="relative w-full sm:max-w-lg">
-            <Search className="w-4 h-4 text-white/40 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-white/55 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Buscar por matrícula (HK-5335), modelo (A320, B787), aerolínea..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 text-xs font-mono bg-white/[0.04] text-white rounded-lg border border-white/10 focus:border-blue-500 focus:outline-none transition-colors placeholder:text-white/30"
+              className="w-full pl-10 pr-4 py-2 text-xs font-mono bg-white/[0.04] text-white rounded-lg border border-white/10 focus:border-blue-500 focus:outline-none transition-colors placeholder:text-white/45"
             />
           </div>
 
@@ -148,7 +148,7 @@ export const AviationPage: React.FC = () => {
               <select
                 value={manufacturerFilter}
                 onChange={(e) => setManufacturerFilter(e.target.value)}
-                className="w-full px-3 py-2 text-xs font-mono bg-[#0d0d0d] text-white border border-white/10 rounded-lg focus:outline-none focus:border-blue-500"
+                className="w-full px-3 py-2 text-xs font-mono bg-neutral-900 text-white border border-white/10 rounded-lg focus:outline-none focus:border-blue-500"
               >
                 {manufacturers.map((m) => (
                   <option key={m} value={m}>
@@ -166,7 +166,7 @@ export const AviationPage: React.FC = () => {
               <select
                 value={airlineFilter}
                 onChange={(e) => setAirlineFilter(e.target.value)}
-                className="w-full px-3 py-2 text-xs font-mono bg-[#0d0d0d] text-white border border-white/10 rounded-lg focus:outline-none focus:border-blue-500"
+                className="w-full px-3 py-2 text-xs font-mono bg-neutral-900 text-white border border-white/10 rounded-lg focus:outline-none focus:border-blue-500"
               >
                 {airlines.map((a) => (
                   <option key={a} value={a}>
@@ -184,7 +184,7 @@ export const AviationPage: React.FC = () => {
               <select
                 value={airportFilter}
                 onChange={(e) => setAirportFilter(e.target.value)}
-                className="w-full px-3 py-2 text-xs font-mono bg-[#0d0d0d] text-white border border-white/10 rounded-lg focus:outline-none focus:border-blue-500"
+                className="w-full px-3 py-2 text-xs font-mono bg-neutral-900 text-white border border-white/10 rounded-lg focus:outline-none focus:border-blue-500"
               >
                 {airports.map((ap) => (
                   <option key={ap} value={ap}>
@@ -202,7 +202,7 @@ export const AviationPage: React.FC = () => {
               <select
                 value={typeFilter}
                 onChange={(e) => setTypeFilter(e.target.value)}
-                className="w-full px-3 py-2 text-xs font-mono bg-[#0d0d0d] text-white border border-white/10 rounded-lg focus:outline-none focus:border-blue-500"
+                className="w-full px-3 py-2 text-xs font-mono bg-neutral-900 text-white border border-white/10 rounded-lg focus:outline-none focus:border-blue-500"
               >
                 {types.map((t) => (
                   <option key={t} value={t}>
@@ -219,16 +219,16 @@ export const AviationPage: React.FC = () => {
       {loading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-            <div key={i} className="h-72 rounded-xl bg-white/[0.03] border border-white/10 animate-pulse" />
+            <div key={i} className="h-72 rounded-xl bg-white/[0.04] border border-white/10 animate-pulse" />
           ))}
         </div>
       ) : filteredAviation.length === 0 ? (
         <div className="p-14 text-center archive-card rounded-xl border border-dashed border-white/10 space-y-3">
-          <Plane className="w-10 h-10 text-white/30 mx-auto -rotate-45" />
+          <Plane className="w-10 h-10 text-white/45 mx-auto -rotate-45" />
           <h3 className="text-base font-semibold text-white/80 serif">
             {aviationList.length === 0 ? 'No hay aeronaves registradas aún' : 'No se encontraron aeronaves'}
           </h3>
-          <p className="text-xs text-white/40 font-mono max-w-md mx-auto">
+          <p className="text-xs text-white/55 font-mono max-w-md mx-auto">
             {aviationList.length === 0
               ? 'Puedes registrar aeronaves con matrículas, aerolíneas, lugares de avistamiento y especificaciones desde el panel de administración.'
               : 'Prueba ajustando los filtros o buscando otra matrícula/aerolínea.'}
