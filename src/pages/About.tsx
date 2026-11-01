@@ -110,7 +110,7 @@ export const About: React.FC = () => {
             )}
             <div className="flex items-center gap-1.5">
               <Mail className="w-3.5 h-3.5 text-blue-400" />
-              <span>{profile?.email || 'mateolriadev@gmail.com'}</span>
+              <span>{profile?.email || 'mateolr@outlook.com'}</span>
             </div>
           </div>
 

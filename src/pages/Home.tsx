@@ -206,7 +206,7 @@ export const Home: React.FC = () => {
                       Archivo Digital Personal
                     </div>
                     <div className="text-[10px] font-mono text-white/45 mt-1">
-                      {profile?.email || "mateolriadev@gmail.com"}
+                      {profile?.email || "mateolr@outlook.com"}
                     </div>
                   </div>
                 )}

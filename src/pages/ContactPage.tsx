@@ -96,7 +96,7 @@ export const ContactPage: React.FC = () => {
                 <div>
                   <p className="text-xs font-bold text-neutral-400 uppercase">Correo Directo</p>
                   <a
-                    href="mailto:mateolriadev@gmail.com"
+                    href="mailto:mateolr@outlook.com"
                     className="font-medium text-white hover:text-sky-500 transition-colors"
                   >
                     mateolr@outlook.com

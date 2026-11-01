@@ -16,7 +16,7 @@ export const initialProfile: Profile = {
   short_bio: '',
   bio: '',
   location: '',
-  email: 'mateolriadev@gmail.com',
+  email: 'mateolr@outlook.com',
   avatar_url: '',
   hero_title: '',
   hero_subtitle: '',
