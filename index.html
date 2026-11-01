@@ -23,6 +23,42 @@
     <meta property="og:image:alt" content="Logo de Mateo Largo con el texto Software Engineer y www.mateolargo.site" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://www.mateolargo.site/og-image.jpg" />
+    <!-- Structured data: tells search engines this site and these profiles belong to the same person.
+         Keep "sameAs" in sync with the social links in /admin. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://www.mateolargo.site/#person",
+            "name": "Mateo Largo",
+            "url": "https://www.mateolargo.site/",
+            "image": "https://bybijzpgemklrjhupwhz.supabase.co/storage/v1/object/public/portfolio-media/avatar/1787701273431-gfatxdo.jpeg",
+            "jobTitle": "Ingeniero de software",
+            "description": "Ingeniero de software apasionado por la tecnología, los viajes y la fotografía de aviación.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Medellín",
+              "addressCountry": "CO"
+            },
+            "knowsAbout": ["Desarrollo de software", "React", "TypeScript", "Supabase", "Fotografía de aviación"],
+            "sameAs": [
+              "https://www.linkedin.com/in/mateolr/",
+              "https://github.com/Mateolr28"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.mateolargo.site/#website",
+            "url": "https://www.mateolargo.site/",
+            "name": "Mateo Largo",
+            "inLanguage": "es",
+            "author": { "@id": "https://www.mateolargo.site/#person" }
+          }
+        ]
+      }
+    </script>
     <meta name="theme-color" content="#0c0e12" />
     <script>
       // Apply the saved (or OS) theme before first paint to avoid a dark/light flash
