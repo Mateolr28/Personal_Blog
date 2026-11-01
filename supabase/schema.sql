@@ -336,15 +336,20 @@ ON CONFLICT (id) DO UPDATE SET public = true;
 -- Storage Policies for Public Read
 CREATE POLICY "Public Access for Profile Images" ON storage.objects FOR SELECT USING (bucket_id IN ('portfolio-media', 'profile', 'projects', 'travel', 'aviation', 'general'));
 
--- Storage Policies for Admin Writes
-CREATE POLICY "Admin Uploads" ON storage.objects FOR INSERT WITH CHECK (
-    auth.uid() IS NOT NULL AND bucket_id IN ('portfolio-media', 'profile', 'projects', 'travel', 'aviation', 'general')
+-- Storage Policies for Admin Writes (only users listed in admin_users)
+DROP POLICY IF EXISTS "Admin Uploads" ON storage.objects;
+CREATE POLICY "Admin Uploads" ON storage.objects FOR INSERT TO authenticated WITH CHECK (
+    public.is_admin() AND bucket_id IN ('portfolio-media', 'profile', 'projects', 'travel', 'aviation', 'general')
 );
 
-CREATE POLICY "Admin Updates" ON storage.objects FOR UPDATE USING (
-    auth.uid() IS NOT NULL AND bucket_id IN ('portfolio-media', 'profile', 'projects', 'travel', 'aviation', 'general')
+DROP POLICY IF EXISTS "Admin Updates" ON storage.objects;
+CREATE POLICY "Admin Updates" ON storage.objects FOR UPDATE TO authenticated USING (
+    public.is_admin() AND bucket_id IN ('portfolio-media', 'profile', 'projects', 'travel', 'aviation', 'general')
+) WITH CHECK (
+    public.is_admin() AND bucket_id IN ('portfolio-media', 'profile', 'projects', 'travel', 'aviation', 'general')
 );
 
-CREATE POLICY "Admin Deletions" ON storage.objects FOR DELETE USING (
-    auth.uid() IS NOT NULL AND bucket_id IN ('portfolio-media', 'profile', 'projects', 'travel', 'aviation', 'general')
+DROP POLICY IF EXISTS "Admin Deletions" ON storage.objects;
+CREATE POLICY "Admin Deletions" ON storage.objects FOR DELETE TO authenticated USING (
+    public.is_admin() AND bucket_id IN ('portfolio-media', 'profile', 'projects', 'travel', 'aviation', 'general')
 );
