@@ -1,6 +1,0 @@
-{
-  "name": "Personal Portfolio & Aviation Archive",
-  "description": "Full-stack personal portfolio, interactive travel log, and aviation spotting digital archive with Supabase backend, auth, storage, and admin CRUD.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

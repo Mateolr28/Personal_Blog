@@ -1,6 +1,6 @@
 # Mateo Largo — Personal Portfolio, Travel Log & Aviation Archive
 
-Aplicación web profesional completa desarrollada en **React 18+**, **TypeScript**, **Tailwind CSS**, y backend con **Supabase (PostgreSQL, Auth & Storage)**.
+Aplicación web profesional completa desarrollada en **React 19**, **TypeScript**, **Tailwind CSS**, y backend con **Supabase (PostgreSQL, Auth & Storage)**.
 
 ---
 
