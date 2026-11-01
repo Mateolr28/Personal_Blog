@@ -68,4 +68,4 @@ La aplicación estará disponible en `http://localhost:3000`.
 
 ## 🔒 Acceso Administrativo
 - Ruta: `/admin/login`
-- En desarrollo local sin Supabase configurado, puedes iniciar sesión con las credenciales demo precargadas (`admin@mateo.dev` / `admin123456`).
+- En desarrollo local (`npm run dev`) sin Supabase configurado, puedes iniciar sesión con cualquier correo y contraseña. Este modo está desactivado en las builds de producción.

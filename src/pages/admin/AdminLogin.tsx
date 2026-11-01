@@ -41,11 +41,6 @@ export const AdminLogin: React.FC = () => {
     }
   };
 
-  const handleQuickDemoAdmin = () => {
-    setEmail('admin@mateo.dev');
-    setPassword('admin123456');
-  };
-
   return (
     <div className="min-h-screen flex flex-col justify-center items-center px-4 bg-neutral-950 text-white relative">
       <SEO title="Acceso Administrativo | Mateo Largo" description="Portal de administración de contenidos." />
@@ -81,17 +76,14 @@ export const AdminLogin: React.FC = () => {
 
           {!isSupabaseConfigured() && (
             <div className="p-3.5 rounded-xl bg-sky-950/60 border border-sky-800 text-sky-300 text-xs flex flex-col gap-1.5">
-              <p className="font-semibold">Modo de Desarrollo Local Activo</p>
-              <p className="text-[11px] text-sky-200/80">
-                Puedes usar cualquier usuario de prueba para autenticarte localmente.
+              <p className="font-semibold">
+                {import.meta.env.DEV ? 'Modo de Desarrollo Local Activo' : 'Supabase no está configurado'}
               </p>
-              <button
-                type="button"
-                onClick={handleQuickDemoAdmin}
-                className="text-left font-mono underline hover:text-white mt-0.5"
-              >
-                Autocompletar credenciales de prueba
-              </button>
+              <p className="text-[11px] text-sky-200/80">
+                {import.meta.env.DEV
+                  ? 'Puedes usar cualquier correo y contraseña para autenticarte localmente.'
+                  : 'El acceso administrativo no está disponible hasta configurar las variables de entorno.'}
+              </p>
             </div>
           )}
 
@@ -104,7 +96,7 @@ export const AdminLogin: React.FC = () => {
               <input
                 type="email"
                 required
-                placeholder="admin@mateo.dev"
+                placeholder="tu@correo.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 text-sm bg-neutral-800 text-white rounded-xl border border-neutral-700 focus:outline-none focus:border-sky-500"

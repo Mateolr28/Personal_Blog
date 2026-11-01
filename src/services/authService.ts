@@ -44,8 +44,12 @@ export const authService = {
         role: adminData.role,
       };
     } else {
-      // Local fallback mode when Supabase variables are not yet configured in UI
-      // Allows testing full admin CRUD functionality
+      // Local fallback mode when Supabase variables are not yet configured.
+      // Only available in development builds; production must never accept mock credentials.
+      if (!import.meta.env.DEV) {
+        throw new Error('El acceso administrativo no está disponible: Supabase no está configurado.');
+      }
+
       if (!email || !password) {
         throw new Error('Por favor ingresa email y contraseña');
       }
@@ -93,6 +97,8 @@ export const authService = {
         role: adminData.role,
       };
     } else {
+      if (!import.meta.env.DEV) return null;
+
       const saved = localStorage.getItem(LOCAL_ADMIN_KEY);
       if (saved) {
         try {
